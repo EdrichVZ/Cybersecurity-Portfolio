@@ -32,7 +32,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
 
 ## SIEM Investigation Case Studies (see SIEM_DASHBOARD screenshot)
 
-### Case 1: Potential Data Exfiltration
+### Case 1: Potential Data Exfiltration (see Alert1_Info and Alert2_Response)
 * **Timestamp:** Mar 21st 2025 at 13:30
 * **Severity:** Critical
 * **Detection Rule:** 5+ GB transferred to a single destination in 24 hours
@@ -42,7 +42,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
   * **Data Metrics:** 5.8 GB Sent / 5.2 GB Received
 
 > **Verdict: False Positive**  
-> **Analyst Notes:** The host is a designated conference room system (`UK04/MEETINGROOM`). Large bidirectional data transfers to verified Zoom domains represent legitimate video conferencing activity during an extended meeting. Recommended tuning rule thresholds for conference room network segments.
+> **Analyst Notes:** At Mar 21st 2025 13:30 a potential data exfiltration alert was triggered. Considering the available information at this time, this is a False Positive. The source IP (192.168.45.66) is a known internal host device located in UK04/MEETINGROOM. The data being sent (5.8GB) and received(5.2GB) to and from *.zoom.us (non-malicious source) is normal behaviour for a video conference/meeting call. The conference/meeting call most likely lasted longer then expected resulting in this alert being triggered. Alert rules might need to be updated to allow longer meetings/conference calls.
 
 ---
 
