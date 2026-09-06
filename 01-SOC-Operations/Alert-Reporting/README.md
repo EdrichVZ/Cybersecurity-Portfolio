@@ -32,9 +32,9 @@ Structured reporting ensures key investigative context is communicated without a
 
 ---
 
-## SIEM Investigation Case Studies
+## SIEM Investigation Case Studies (see SIEM_Dashboard screenshot)
 
-### Case 1: Email Marked as Phishing after Delivery
+### Case 1: Email Marked as Phishing after Delivery (see Alert1_Info and Alert1-Repsonse screenshots)
 * **Severity:** Medium
 * **Verdict:** True Positive
 * **Status:** In Progress / Escalated
@@ -48,7 +48,7 @@ Structured reporting ensures key investigative context is communicated without a
 
 ---
 
-### Case 2: Spike of Domain Discovery Commands
+### Case 2: Spike of Domain Discovery Commands (see Alert2_Info and Alert2-Repsonse screenshots)
 * **Severity:** Medium
 * **Verdict:** True Positive
 * **Status:** In Progress / Escalated
