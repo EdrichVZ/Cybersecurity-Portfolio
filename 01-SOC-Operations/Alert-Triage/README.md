@@ -62,7 +62,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
 
 ---
 
-### Case 3: Download from GitHub Repository
+### Case 3: Download from GitHub Repository (see Alert3_Info and Alert3_Response screenshots)
 * **Timestamp:** Mar 21st 2025 at 13:02
 * **Severity:** Low
 * **Detection Rule:** File or repository download from GitHub
@@ -72,7 +72,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
   * **Accessed URL:** `https://github.com/facebook/react`
 
 > **Verdict: False Positive**  
-> **Analyst Notes:** The activity originated from a known IT Developer account accessing a legitimate, mainstream open-source repository (`facebook/react`). No malicious payloads or unauthorized tools were involved. Closed as False Positive.
+> **Analyst Notes:** At Mar 21st 2025 at 13:02 a GitHub download alert was triggered. This is a False Positive, user G.Chandler and host LPT-IT-063 is from the IT Developers department. The URL https://github.com/facebook/react which the download is from is legitimate, and no evidence of Malicious intent from the download has been present.
 
 ---
 
