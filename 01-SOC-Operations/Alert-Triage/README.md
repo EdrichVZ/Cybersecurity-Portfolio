@@ -32,7 +32,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
 
 ## SIEM Investigation Case Studies (see SIEM_DASHBOARD screenshot)
 
-### Case 1: Potential Data Exfiltration (see Alert1_Info and Alert2_Response screenshots)
+### Case 1: Potential Data Exfiltration (see Alert1_Info and Alert1_Response screenshots)
 * **Timestamp:** Mar 21st 2025 at 13:30
 * **Severity:** Critical
 * **Detection Rule:** 5+ GB transferred to a single destination in 24 hours
@@ -46,7 +46,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
 
 ---
 
-### Case 2: Double-Extension File Creation
+### Case 2: Double-Extension File Creation (see Alert2_Info and Alert2_Response screenshots)
 * **Timestamp:** Mar 21st 2025 at 13:58
 * **Severity:** High
 * **Detection Rule:** Creation of double-extension executables (`*.mp4.exe`, `*.pdf.exe`)
@@ -58,7 +58,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
   * **File Hash (MD5):** `14d8486f3f63875ef93cfd240c5dc10b`
 
 > **Verdict: True Positive**  
-> **Analyst Notes:** User downloaded a malicious executable disguised as a video file via Google Chrome. Threat intelligence scanning confirmed the domain and MD5 hash are malicious. Escalated to Tier 2 for host isolation, system scanning, and execution log analysis.
+> **Analyst Notes:** Mar 21st 2025 at 13:58 a double-extension file alert was triggered. Based on the information present, this is a True Positive. The Host: LPT-HR-009 user: S.Conway has downloaded a called cats2025.mp4.exe (C:\Users\S.Conway\Downloads\cats2025.mp4.exe) via chrome.exe from https://freecatvideoshd.monster/cats2025.mp4.exe. Scanning has revealed the domain and file MD5(14d8486f3f63875ef93cfd240c5dc10b) is malicious. Escalating to T2 agent device might be compromised if user has open the malicious file. Suggest removing the file and scanning host system. Host isolation and log investigation necessary if file was executed.
 
 ---
 
