@@ -1,7 +1,7 @@
 # BASIC SOC Tier 1 Alert Triage & Incident Response Simulation
 
 ## Overview
-This repository documents BASIC Security Operations Center (SOC) Level 1 alert triage and incident handling within a simulated SIEM environment. The primary focus is evaluating raw security logs, executing alert prioritization workflows, gathering entity context, and determining appropriate incident verdicts.
+This repository documents BASIC Security Operations Center (SOC) Level 1 alert triage and incident handling within a simulated SIEM environment. The primary focus is evaluating the alerts, executing alert prioritization workflows, gathering entity context, and determining appropriate incident verdicts without access to other tools and logs.
 
 ---
 
