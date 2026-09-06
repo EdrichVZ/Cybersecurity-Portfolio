@@ -32,7 +32,7 @@ This repository documents BASIC Security Operations Center (SOC) Level 1 alert t
 
 ## SIEM Investigation Case Studies (see SIEM_DASHBOARD screenshot)
 
-### Case 1: Potential Data Exfiltration (see Alert1_Info and Alert2_Response)
+### Case 1: Potential Data Exfiltration (see Alert1_Info and Alert2_Response screenshots)
 * **Timestamp:** Mar 21st 2025 at 13:30
 * **Severity:** Critical
 * **Detection Rule:** 5+ GB transferred to a single destination in 24 hours
