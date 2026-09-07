@@ -17,7 +17,7 @@ Subsequent technical analysis confirmed that the email was part of a targeted sp
 
 ## Technical Investigation & Artifact Extraction
 
-### 1. Email Header & Envelope Analysis
+### 1. Email Header & Envelope Analysis (see 01_Email screenshot)
 
 An examination of the raw email headers and envelope parameters was conducted to identify the true origin and reply routing of the message.
 
