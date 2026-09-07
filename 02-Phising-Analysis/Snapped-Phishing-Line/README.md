@@ -45,3 +45,26 @@ Both attachment types delivered during the campaign (`Direct Credit Advice.html`
 
 **Notes:**  
 Both attachment vectors act as initial delivery mechanisms routing victims to a highly convincing Microsoft 365 credential-harvesting interface hosted on `kennaroads.buzz`. The adversary configured the redirection URLs to dynamically append the victim's email address (`?email=user@swiftspend.finance`). This automatically populates the email field on the spoofed login page, lowering user suspicion and increasing credential submission success.
+
+---
+
+### 3. Open Directory Discovery & Phishing Kit Artifact Analysis
+
+Following the destination URL (`/data/Update365/`), directory traversal was attempted against the root web server path (`/data/`). Due to a server misconfiguration by the adversary, directory listing remained enabled, exposing the backend web server files and hosted assets. (See screenshot 03A)
+
+* **Exposed Directory Path:** `hxxps[://]kennaroads[.]buzz/data/`
+* **Retrieved Phishing Kit Archive:** `Update365.zip`
+* **Cryptographic Hash (SHA-256):** `ba3c15267393419eb08c7b2652b8b6b39b406ef300ae8a18fee4d16b19ac9686`
+
+#### Threat Intelligence & VirusTotal Analysis (screenshot 03B)
+
+The extracted archive hash was cross-referenced against VirusTotal to assess threat classification, historical campaign deployment, and file metadata:
+
+* **Primary Threat Category:** Phishing
+* **Secondary Threat Category:** `Trojan`
+* **Total Archive File Count:** `42` files
+* **First VirusTotal Submission:** `2020-04-08 21:55:50 UTC`
+* **Passive DNS / SSL Certificate Creation:** `2020-06-25`
+
+**Notes:**  
+The exposure of `/data/` allowed the immediate retrieval of `Update365.zip`, an off-the-shelf Microsoft 365 credential harvesting kit. Cross-referencing the file hash on VirusTotal revealed that this specific archive signature was tagged under the `Trojan` classification alongside generic phishing indicators, containing 42 constituent files (including login templates, PHP processing scripts, and image assets).
