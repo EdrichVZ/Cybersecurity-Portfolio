@@ -7,7 +7,7 @@
 
 ---
 
-## Executive Summary
+## Scenario Summary
 
 On September 7, 2026, the Security Operations Center (SOC) received an escalation from a sales executive at Greenholt PLC regarding a suspicious email claiming to originate from a known customer. Initial triage revealed multiple red flags, including an uncharacteristic generic greeting, an unsolicited wire transfer request, and an embedded file attachment.
 
