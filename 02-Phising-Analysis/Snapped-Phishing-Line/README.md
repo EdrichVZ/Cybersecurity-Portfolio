@@ -15,18 +15,17 @@ Technical analysis confirmed an active spear-phishing campaign employing domain 
 
 ---
 
-## Technical Investigation & Artifact Extraction
-
 ### 1. Phishing Distribution & Lure Analysis
 
-Initial triage focused on identifying affected mailboxes and analyzing incoming lure messages.
+Initial triage focused on identifying affected mailboxes and analyzing incoming lure messages across impacted corporate departments.
 
-* **Target Recipient (Quote for Services Rendered):** `William McClean`
+* **Target Recipients:** `Derick Marshall`, `Michael Ascot`, `Michelle Chen`, `Zoe Duncan`, `William McClean`
+* **Target Email Addresses:** `derick.marshall@swiftspend.finance`, `michael.ascot@swiftspend.finance`, `michelle.chen@swiftspend.finance`, `zoe.duncan@swiftspend.finance`, `william.mcclean@swiftspend.finance`
 * **Adversary Sender Address:** `Accounts.Payable@groupmarketingonline.icu`
-* **Target Recipient (Attachment Vector):** `Zoe Duncan`
-* **Delivery Mechanism:** Malicious PDF containing embedded redirection URLs.
+* **Suspected Malicious Attachments:** `Direct Credit Advice.html` (approx. 515 bytes) and `Quote.pdf` (107 KB)
+* **Delivery Mechanism:** Spear-phishing blast delivered on June 29, 2020, at 06:01 AM, utilizing HTML attachments and a malicious PDF containing embedded redirection URLs.
 
-> **Analyst Notes:**  
-> The adversary utilized `groupmarketingonline.icu` to send targeted lures across multiple departments, using business-themed lures (e.g., "Quote for Services Rendered") to induce compliance.
+**Notes:**  
+The adversary utilized `groupmarketingonline.icu` to send targeted lures across multiple departments, using business-themed subjects (e.g., "Quote for Services Rendered" and "Direct Credit Advice") to induce compliance. The presence of identical timestamps (06:01) across multiple recipients indicates an automated script or mailer tool was used to execute the campaign simultaneously.
 
 ---
