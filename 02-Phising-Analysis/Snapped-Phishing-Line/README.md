@@ -15,7 +15,7 @@ Technical analysis confirmed an active spear-phishing campaign employing domain 
 
 ---
 
-### 1. Phishing Distribution & Lure Analysis
+### 1. Phishing Distribution & Lure Analysis (see 01_All_Emails screenshot)
 
 Initial triage focused on identifying affected mailboxes and analyzing incoming lure messages across impacted corporate departments.
 
@@ -34,9 +34,9 @@ The adversary utilized `groupmarketingonline.icu` to send targeted lures across 
 
 Both attachment types delivered during the campaign (`Direct Credit Advice.html` and `Quote.pdf`) were extracted and subjected to static code inspection to uncover embedded payloads and redirection paths.
 
-* **HTML File Vector (`Direct Credit Advice.html`):** (See screenshot 02A) 
+* **HTML File Vector (`Direct Credit Advice.html`):** (See 02_html_file screenshot) 
   Static inspection of the HTML source code revealed a client-side redirect mechanism using JavaScript/Meta Refresh. Opening the file automatically routes the browser to an external landing page parameterized with the recipient's email address.
-* **PDF File Vector (`Quote.pdf`):** (See screenshot 02B)  
+* **PDF File Vector (`Quote.pdf`):** (See 02_pdf_file screenshot)  
   Parsing the object streams within the PDF file delivered to `william.mcclean@swiftspend.finance` identified an embedded Hyperlink Action (`/URI`) attribute pointing directly to the external phishing kit.
 * **Full Target Landing Page (Defanged using CyberChef):**  
   `hxxps[://]kennaroads[.]buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe.duncan@swiftspend[.]finance&error`
@@ -48,7 +48,7 @@ Both attachment vectors act as initial delivery mechanisms routing victims to a 
 
 ---
 
-### 3. Open Directory Discovery & Phishing Kit Artifact Analysis
+### 3. Open Directory Discovery & Phishing Kit Artifact Analysis (see 03_directory screenshot)
 
 Following the destination URL (`/data/Update365/`), directory traversal was attempted against the root web server path (`/data/`). Due to a server misconfiguration by the adversary, directory listing remained enabled, exposing the backend web server files and hosted assets. (See screenshot 03A)
 
@@ -56,7 +56,7 @@ Following the destination URL (`/data/Update365/`), directory traversal was atte
 * **Retrieved Phishing Kit Archive:** `Update365.zip`
 * **Cryptographic Hash (SHA-256):** `ba3c15267393419eb08c7b2652b8b6b39b406ef300ae8a18fee4d16b19ac9686`
 
-#### Threat Intelligence & VirusTotal Analysis (screenshot 03B)
+#### Threat Intelligence & VirusTotal Analysis (see 03_archive_and_VirusTotal_scan screenshot)
 
 The extracted archive hash was cross-referenced against VirusTotal to assess threat classification, historical campaign deployment, and file metadata:
 
