@@ -79,8 +79,8 @@ Navigating to `/data/Update365/` revealed exposed log files (`log.txt`) generate
 * **Confirmed compromised users:** `michael.ascot@swiftspend.finance`, `zoe.duncan@swiftspend.finance`, `derick.marshall@swiftspend.finance` and `michelle.chen@swiftspend.finance` 
 * **Observed Victim Behavior:** The users submitted their corporate credentials.
 
-> **Analyst Notes:**  
-> The phishing kit logic intentionally presents an "Invalid Password" error message upon the initial submission. This tactic tricks victims into re-entering their password, capturing multiple attempts to ensure accuracy and account for typos.
+**Notes:**  
+The phishing kit logic intentionally presents an "Invalid Password" error message upon the initial submission. This tactic tricks victims into re-entering their password, capturing multiple attempts to ensure accuracy and account for typos.
 
 #### Source Code Analysis (`submit.php`) (see 04_submit.php screenshot)
 Static analysis of the primary processing script, `submit.php`, uncovered the data capture and exfiltration routines:
