@@ -58,7 +58,7 @@ The legitimate domain enforces Microsoft 365 for outbound mail (`spf.protection.
 
 ### 4. Malicious Attachment & Payload Analysis (see 05_SHA256&VirusTotal screenshot)
 
-The email contained a suspicious attachment designed to mimic a legitimate document. File hash was obtained running SHA256sum command in temrinal.
+The email contained a suspicious attachment designed to mimic a legitimate document. File hash was obtained running sha256sum command in temrinal.
 
 * **Attachment File Name:** `SWT_#09674321____PDF__.CAB`
 * **Cryptographic Hash (SHA-256):** `2e91c533615a9bb8929ac4bb76707b2444597ce063d84a4b33525e25074fff3f`
@@ -69,3 +69,22 @@ The email contained a suspicious attachment designed to mimic a legitimate docum
 While named with `.CAB` and containing `PDF` in the filename to deceive end users, static magic-byte inspection and VirusTotal analysis confirm the file is actually a **RAR compressed archive** containing executable malware payload dropper files.
 
 ---
+
+## Indicators of Compromise (IOCs)
+
+| IOC Type | Indicator | Description |
+| :--- | :--- | :--- |
+| **Sender Email** | `info@mutawamarine.com` | Spoofed header address |
+| **Reply-To Email** | `info.mutawamarine@mail.com` | Adversary collection mailbox |
+| **IP Address** | `192.119.71.157` | Malicious originating server (HostPapa / AS54290) |
+| **File Name** | `SWT_#09674321____PDF__.CAB` | Deceptive malicious attachment |
+| **SHA-256 Hash** | `2e91c533615a9bb8929ac4bb76707b2444597ce063d84a4b33525e25074fff3f` | Malicious RAR Archive Payload |
+
+---
+
+## Remediation & Recommendations
+
+1. **Ingress Filtering:** Block the IP address `192.119.71.157` at the enterprise firewall and mail gateway level.
+2. **Mail Gateway Rule:** Quarantine any inbound emails matching the SHA-256 hash or containing double-extension archive formats (`.PDF__.CAB`).
+3. **Identity Protection:** Block communications to/from `info.mutawamarine@mail.com` across enterprise mail systems.
+4. **User Awareness:** Re-evaluate endpoint phishing controls and send a targeted refresher on double-extension attachment risks to the sales department.
