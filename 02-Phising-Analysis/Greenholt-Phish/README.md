@@ -30,3 +30,15 @@ An examination of the raw email headers and envelope parameters was conducted to
 The mismatch between the `From` address (`info@mutawamarine.com`) and the `Reply-To` address (`info.mutawamarine@mail.com`) is a tactic designed to divert victim responses to an adversary-controlled public mail domain (`mail.com`), bypassing corporate mail controls.
 
 ---
+
+### 2. Network Intelligence & Origin Tracing
+
+To determine the infrastructure used to send the message, the hops recorded in the `Received:` headers were analyzed.
+
+* **Originating IP Address:** `192.119.71.157`
+* **IP Address Owner/ISP:** `Hostwinds LLC`
+
+> **Analyst Notes:**  
+> WHOIS lookup and IP reputation tracking link this IP address to Hostwinds LLC VPS infrastructure, indicating the email was not sent from legitimate corporate mail servers associated with the sender domain.
+
+---
