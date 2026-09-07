@@ -26,7 +26,7 @@ An examination of the raw email headers and envelope parameters was conducted to
 * **From Address:** `info@mutawamarine.com`
 * **Reply-To Address:** `info.mutawamarine@mail.com`
 
-> **Analyst Notes:**  
-> The mismatch between the `From` address (`info@mutawamarine.com`) and the `Reply-To` address (`info.mutawamarine@mail.com`) is a tactic designed to divert victim responses to an adversary-controlled public mail domain (`mail.com`), bypassing corporate mail controls.
+**Notes:**  
+The mismatch between the `From` address (`info@mutawamarine.com`) and the `Reply-To` address (`info.mutawamarine@mail.com`) is a tactic designed to divert victim responses to an adversary-controlled public mail domain (`mail.com`), bypassing corporate mail controls.
 
 ---
