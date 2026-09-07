@@ -44,4 +44,15 @@ Live ARIN WHOIS queries confirm that the allocation `192.119.64.0/18` is directl
 
 ---
 
+### 3. Domain Authentication Verification (see 03_SPF_&_DMARC screenshot)
+
+DNS record lookups were performed in the terminal against the `Return-Path` domain (mutawamarine.com) to evaluate email spoofing protections (SPF and DMARC).
+
+* **SPF Record:** `v=spf1 include:spf.protection.outlook.com -all`
+* **DMARC Record:** `v=DMARC1; p=quarantine; fo=1`
+
+**Notes:**  
+The legitimate domain enforces Microsoft 365 for outbound mail (`spf.protection.outlook.com`) and specifies a `-all` (hard fail) directive. Because the originating IP (`192.119.71.157`) is not an authorized sender in this SPF record, the message fails SPF authentication.
+
+---
 ---
