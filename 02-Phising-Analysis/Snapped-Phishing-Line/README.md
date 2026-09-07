@@ -69,7 +69,7 @@ The extracted archive hash was cross-referenced against VirusTotal to assess thr
 **Notes:**  
 The exposure of `/data/` allowed the immediate retrieval of `Update365.zip`, an off-the-shelf Microsoft 365 credential harvesting kit. Cross-referencing the file hash on VirusTotal revealed that this specific archive signature was tagged under the `Trojan` classification alongside generic phishing indicators, containing 42 constituent files (including login templates, PHP processing scripts, and image assets).
 
-### 4. Forensic Log Inspection & Exfiltration Code Analysis (see 04_log_file screenshot)
+### 4. Log Inspection & Exfiltration Code Analysis (see 04_log_file screenshot)
 
 To determine the extent of user compromise and identify the adversary's exfiltration channels, both the hosted log files and the backend processing scripts within `Update365.zip` were analyzed.
 
@@ -89,7 +89,7 @@ Static analysis of the primary processing script, `submit.php`, uncovered the da
 * **Exfiltration Mechanism:** PHP `mail()` function configured to package captured usernames, passwords, IP addresses, and user-agent strings into automated outbound emails.
 
 **Notes:**  
-Once a victim submits credentials, `submit.php` writes the entry to the local server log and immediately dispatches an email payload to the adversary's Yandex inbox (`m3npat@yandex.com`). Accessing the kit's hidden configuration file revealed the encoded string, which was decoded via CyberChef to confirm `THM{pL4y_w1Th_tH3_URL}`.
+Once a victim submits credentials, `submit.php` writes the entry to the local server log and immediately dispatches an email payload to the adversary's Yandex inbox (`m3npat@yandex.com`). 
 
 ---
 
