@@ -64,6 +64,6 @@ The email contained a suspicious attachment designed to mimic a legitimate docum
 * **File Size:** `400.26 KB`
 * **Actual File Type:** `RAR Archive`
 
-Notes:**  
+**Notes:**  
 While named with `.CAB` and containing `PDF` in the filename to deceive end users, static magic-byte inspection and VirusTotal analysis confirm the file is actually a **RAR compressed archive** containing executable malware payload dropper files.
 ---
