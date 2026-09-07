@@ -55,6 +55,7 @@ DNS record lookups were performed in the terminal against the `Return-Path` doma
 The legitimate domain enforces Microsoft 365 for outbound mail (`spf.protection.outlook.com`) and specifies a `-all` (hard fail) directive. Because the originating IP (`192.119.71.157`) is not an authorized sender in this SPF record, the message fails SPF authentication.
 
 ---
+
 ### 4. Malicious Attachment & Payload Analysis (see 05_SHA256&VirusTotal screenshot)
 
 The email contained a suspicious attachment designed to mimic a legitimate document. File hash was obtained running SHA256sum command in temrinal.
@@ -66,4 +67,5 @@ The email contained a suspicious attachment designed to mimic a legitimate docum
 
 **Notes:**  
 While named with `.CAB` and containing `PDF` in the filename to deceive end users, static magic-byte inspection and VirusTotal analysis confirm the file is actually a **RAR compressed archive** containing executable malware payload dropper files.
+
 ---
