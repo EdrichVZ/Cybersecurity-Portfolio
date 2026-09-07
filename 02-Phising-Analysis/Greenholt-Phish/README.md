@@ -31,14 +31,17 @@ The mismatch between the `From` address (`info@mutawamarine.com`) and the `Reply
 
 ---
 
-### 2. Network Intelligence & Origin Tracing
+### 2. Network Intelligence & Origin Tracing (see 02_Source_Info screenshot)
 
-To determine the infrastructure used to send the message, the hops recorded in the `Received:` headers were analyzed.
+To determine the infrastructure used to send the message, the hops recorded in the `Received:` headers were analyzed alongside real-time WHOIS network records.
 
 * **Originating IP Address:** `192.119.71.157`
-* **IP Address Owner/ISP:** `Hostwinds LLC`
+* **IP Block Owner / Organization:** `HostPapa` (`OrgName: HostPapa`, `ASN: AS54290`)
+* **Reverse DNS / PTR Hostname:** `client-192-119-71-157.hostwindsdns.com`
 
-> **Analyst Notes:**  
-> WHOIS lookup and IP reputation tracking link this IP address to Hostwinds LLC VPS infrastructure, indicating the email was not sent from legitimate corporate mail servers associated with the sender domain.
+**Notes:**  
+Live ARIN WHOIS queries confirm that the allocation `192.119.64.0/18` is directly owned and managed by **HostPapa** (`HOSTP-7`). Reverse DNS resolution maps the node back to legacy `hostwindsdns.com` infrastructure. This verifies that the traffic originated from a commercial VPS hosting provider rather than legitimate corporate mail servers.
+
+---
 
 ---
