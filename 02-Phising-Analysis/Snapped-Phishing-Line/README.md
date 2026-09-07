@@ -29,3 +29,19 @@ Initial triage focused on identifying affected mailboxes and analyzing incoming 
 The adversary utilized `groupmarketingonline.icu` to send targeted lures across multiple departments, using business-themed subjects (e.g., "Quote for Services Rendered" and "Direct Credit Advice") to induce compliance. The presence of identical timestamps (06:01) across multiple recipients indicates an automated script or mailer tool was used to execute the campaign simultaneously.
 
 ---
+
+### 2. Attachment & URL Redirection Analysis
+
+Both attachment types delivered during the campaign (`Direct Credit Advice.html` and `Quote.pdf`) were extracted and subjected to static code inspection to uncover embedded payloads and redirection paths.
+
+* **HTML File Vector (`Direct Credit Advice.html`):** (See screenshot 02A) 
+  Static inspection of the HTML source code revealed a client-side redirect mechanism using JavaScript/Meta Refresh. Opening the file automatically routes the browser to an external landing page parameterized with the recipient's email address.
+* **PDF File Vector (`Quote.pdf`):** (See screenshot 02B)  
+  Parsing the object streams within the PDF file delivered to `william.mcclean@swiftspend.finance` identified an embedded Hyperlink Action (`/URI`) attribute pointing directly to the external phishing kit.
+* **Full Target Landing Page (Defanged using CyberChef):**  
+  `hxxps[://]kennaroads[.]buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe.duncan@swiftspend[.]finance&error`
+* **Redirection Root Domain:** `kennaroads.buzz`
+* **Impersonated Service:** `Microsoft` *(Microsoft 365 / Office 365)*
+
+**Notes:**  
+Both attachment vectors act as initial delivery mechanisms routing victims to a highly convincing Microsoft 365 credential-harvesting interface hosted on `kennaroads.buzz`. The adversary configured the redirection URLs to dynamically append the victim's email address (`?email=user@swiftspend.finance`). This automatically populates the email field on the spoofed login page, lowering user suspicion and increasing credential submission success.
