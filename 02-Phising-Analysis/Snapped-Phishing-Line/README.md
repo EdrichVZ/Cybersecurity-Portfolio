@@ -34,7 +34,7 @@ The adversary utilized `groupmarketingonline.icu` to send targeted lures across 
 
 Both attachment types delivered during the campaign (`Direct Credit Advice.html` and `Quote.pdf`) were extracted and subjected to static code inspection to uncover embedded payloads and redirection paths.
 
-* **HTML File Vector (`Direct Credit Advice.html`):** (See 02_html_file screenshot) 
+* **HTML File Vector (`Direct Credit Advice.html`):** (See 02_html_file screenshot)
   Static inspection of the HTML source code revealed a client-side redirect mechanism using JavaScript/Meta Refresh. Opening the file automatically routes the browser to an external landing page parameterized with the recipient's email address.
 * **PDF File Vector (`Quote.pdf`):** (See 02_pdf_file screenshot)  
   Parsing the object streams within the PDF file delivered to `william.mcclean@swiftspend.finance` identified an embedded Hyperlink Action (`/URI`) attribute pointing directly to the external phishing kit.
