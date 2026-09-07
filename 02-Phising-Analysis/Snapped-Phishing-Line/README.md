@@ -50,7 +50,7 @@ Both attachment vectors act as initial delivery mechanisms routing victims to a 
 
 ### 3. Open Directory Discovery & Phishing Kit Artifact Analysis (see 03_directory screenshot)
 
-Following the destination URL (`/data/Update365/`), directory traversal was attempted against the root web server path (`/data/`). Due to a server misconfiguration by the adversary, directory listing remained enabled, exposing the backend web server files and hosted assets. (See screenshot 03A)
+Following the destination URL (`/data/Update365/`), directory traversal was attempted against the root web server path (`/data/`). Due to a server misconfiguration by the adversary, directory listing remained enabled, exposing the backend web server files and hosted assets.
 
 * **Exposed Directory Path:** `hxxps[://]kennaroads[.]buzz/data/`
 * **Retrieved Phishing Kit Archive:** `Update365.zip`
