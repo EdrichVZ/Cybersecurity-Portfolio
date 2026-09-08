@@ -1,4 +1,4 @@
-Alert 1004 Case Report - Non-Malicious Email Activity
+# Alert 1004 Case Report - Non-Malicious Email Activity
 
 ## 1. Summary
 * **Classification:** False Positive
