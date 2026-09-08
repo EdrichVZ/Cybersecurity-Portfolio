@@ -10,14 +10,12 @@
 | **1023** | Suspicious Parent Child Relationship | Low | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1024** | Network drive disconnected from a local drive | Medium | Execution | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1025** | Suspicious Parent Child Relationshipt | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
-| **1026** | 
-Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
+| **1026** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1027** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1028** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1029** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1030** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
-| **1031** | 
-Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
+| **1031** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1032** |Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1033** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1034** | Suspicious Parent Child Relationship | High | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
