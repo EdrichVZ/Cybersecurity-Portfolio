@@ -4,7 +4,7 @@
 * **Classification:** True Positive
 * **Severity:** High
 * **Escalation Required:** Yes
-* **Timestamp:** `2024-01-08 08:34:18 UTC`
+* **Timestamp:** `09/07/2026 18:07:49.240`
 * **Summary:** A True Positive incident was identified on host `win-3450` (belonging to Michael Ascot, CEO) where `net.exe` was spawned by `powershell.exe` from a local Downloads directory to map a sensitive financial file share (`\\FILESRV-01\SSF-FinancialRecords`). This activity indicates unauthorized network share discovery and potential data staging.
 
 ---
