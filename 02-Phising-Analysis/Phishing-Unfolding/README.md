@@ -38,7 +38,7 @@
 | **1009** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
 | **1010** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
 | **1011** | Suspicious email from external domain. | Low | Phishing | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
-| **1012** | Windows Account Brute Force | Low | Process | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
+| **1012** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
 | **1013** | Suspicious email from external domain. | Low | Phishing | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
 | **1014** | Suspicious email from external domain.e | Low | Phishing | No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
 | **1015** | Suspicious Parent Child Relationship | Low | Process| No | [View Report](case-reports/FP-01_windows_account_brute_force.md) |
