@@ -28,9 +28,9 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **1000** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1000-FP.md) |
 | **1001** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1001-FP.md) |
-| **1002** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1000-FP.md) |
-| **1003** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1000-FP.md) |
-| **1004** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1000-FP.md) |
+| **1002** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1002-FP.md) |
+| **1003** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1003-FP.md) |
+| **1004** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1004-FP.md) |
 | **1005** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1000-FP.md) |
 | **1006** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1000-FP.md) |
 | **1007** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1000-FP.md) |
