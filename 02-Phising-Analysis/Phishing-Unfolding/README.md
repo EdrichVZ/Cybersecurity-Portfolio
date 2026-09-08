@@ -2,7 +2,7 @@
 
 **True Positives**
 
-| Alert ID | Alert Name | Severity | Escalation Needed? | Report Link |
+| Alert ID | Alert Name | Severity | Type | Escalation Needed? | Report Link |
 | :--- | :--- | :--- | :--- | :--- |
 | **1005** | Suspicious Attachment found in email | Low | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1020** | Powershell Script in Downloads Folder | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
