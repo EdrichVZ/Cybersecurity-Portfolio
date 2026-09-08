@@ -37,4 +37,5 @@ Escalation is not required. The activity presents no operational risk to the env
 1. **Case Closure:** Close the alert within the SIEM as a benign False Positive.
 2. **Rule Tuning:** Monitor the detection trigger logic to prevent benign incoming support emails from generating unnecessary alert noise.
 
+## 6. Screenshots
 <img width="2560" height="1392" alt="ALT-1000" src="https://github.com/user-attachments/assets/0da66215-50eb-402c-aba3-35ace0b655cd" />
