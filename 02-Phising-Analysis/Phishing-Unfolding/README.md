@@ -4,7 +4,7 @@
 
 | Alert ID | Alert Name | Severity | Type | Escalation Needed? | Report Link |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **1005** | Suspicious Attachment found in email | Low | Phishing | Yes | [View Report](02-Phising-Analysis/Phishing-Unfolding/Case-Reports/1005-TP/ALT-1005-TP.md) |
+| **1005** | Suspicious Attachment found in email | Low | Phishing | Yes | [View Report](Case-Reports/1005-TP/ALT-1005-TP.md) |
 | **1020** | Powershell Script in Downloads Folder | Low | Execution | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1022** | Network drive mapped to a local drive | Medium | Execution | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1023** | Suspicious Parent Child Relationship | Low | Process | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
