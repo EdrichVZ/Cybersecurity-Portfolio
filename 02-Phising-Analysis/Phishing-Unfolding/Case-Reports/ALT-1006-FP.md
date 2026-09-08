@@ -1,4 +1,4 @@
-Alert 1006 Case Report - Legitimate System Process (rdpclip Clipboard Monitor)
+# Alert 1006 Case Report - Legitimate System Process (rdpclip Clipboard Monitor)
 
 ## 1. Summary
 * **Classification:** False Positive
