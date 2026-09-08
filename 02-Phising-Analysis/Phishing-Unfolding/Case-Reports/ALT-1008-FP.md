@@ -38,5 +38,5 @@ Escalation is not required. The execution lineage, binary path, and parameters a
 1. **Case Closure:** Close the alert within the SIEM as a benign False Positive.
 2. **Rule Tuning:** Update detection logic to whitelist `WUDFHost.exe` when spawned by `services.exe` from `C:\Windows\System32\` with standard driver parameters to minimize future alert noise.
 
-** 6. Screenshot
+## 6. Screenshot
 <img width="2560" height="1392" alt="ALT-1008" src="https://github.com/user-attachments/assets/1f1bb0a3-87c1-497f-96ad-2aad921c3945" />
