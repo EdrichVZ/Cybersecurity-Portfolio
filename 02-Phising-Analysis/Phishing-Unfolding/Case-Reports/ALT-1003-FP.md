@@ -1,42 +1,41 @@
-# Alert 1003 Case Report - Legitimate System Process (taskhostw Key Roaming)
+# Alert 1003 Case Report - Non-Malicious Email Activity
 
 ## 1. Summary
 * **Classification:** False Positive
 * **Severity:** Low
 * **Escalation Required:** No
-* **Timestamp:** `09/07/2026 17:39:04.240`
-* **Summary:** An alert was generated for process execution on host `win-3451` under the account of Miguel O'Donnell. Investigation confirmed the event was legitimate Windows Scheduled Task execution associated with key roaming (`taskhostw.exe`).
+* **Timestamp:** `09/07/2026 17:39:22.240`
+* **Summary:** An automated alert was generated for an inbound email delivered to `yani.zubair@tryhatme.com`. Investigation confirmed the email contained no malicious payloads, external links, or policy violations.
 
 ---
 
-## 2. Affected Entities & Host Details
-* **Hostname:** `win-3451`
-* **User Account:** Miguel O'Donnell
+## 2. Affected Entities & Email Details
+* **Sender:** `leonard@fashionindustrytrends.xyz`
+* **Recipient:** `yani.zubair@tryhatme.com`
 
 ---
 
-## 3. Indicators & Process Artifacts
-* **Process Name:** `taskhostw.exe`
-* **Parent Process:** `svchost.exe`
-* **File Path:** `C:\Windows\System32\taskhostw.exe`
-* **Command Line / Arguments:** `KEYROAMING`
-* **Malicious Indicators:** None (Standard Windows system path, expected parent process, and legitimate system argument)
+## 3. Email Artifacts & Indicators
+* **Sender Address:** `leonard@fashionindustrytrends.xyz`
+* **Sender Domain:** `fashionindustrytrends.xyz`
+* **Attachments:** None
+* **Embedded Links:** None
 
 ---
 
 ## 4. Triage & Analysis
 
 **False Positive Justification:**
-`taskhostw.exe` was spawned by `svchost.exe` from `C:\Windows\System32\` with the standard system argument `KEYROAMING`. This behavior represents expected, built-in Windows Scheduled Task functionality for user key roaming rather than malicious activity or process injection.
+Inspection of the email headers, body content, and associated SIEM logs revealed no malicious artifacts. The message contains zero attached files and no embedded hyperlinks, indicating benign inbound communication rather than a security threat attempt.
 
 **Escalation Justification:**
-Escalation is not required. The execution lineage, binary path, and arguments reflect benign operating system processes, posing no operational or security risk.
+Escalation is not required. The activity presents no operational risk to the organization, and no compromised assets, execution vectors, or policy breaches were identified.
 
 ---
 
 ## 5. Resolution & Actions
 1. **Case Closure:** Close the alert within the SIEM as a benign False Positive.
-2. **Rule Tuning:** Adjust detection logic to filter out benign executions of `taskhostw.exe` when initiated by `svchost.exe` with the `KEYROAMING` parameter to minimize future alert noise.
+2. **Rule Tuning:** Refine email security filtering rules to suppress alerts for inbound emails that lack attachments, URLs, or known threat indicators.
 
 ## 6. Screenshot
 <img width="2560" height="1392" alt="ALT-1003" src="https://github.com/user-attachments/assets/8d089b47-ad46-4607-90fb-cdf01c74258f" />
