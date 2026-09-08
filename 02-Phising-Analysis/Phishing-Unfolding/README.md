@@ -4,8 +4,8 @@
 
 | Alert ID | Alert Name | Severity | Escalation Needed? | Report Link |
 | :--- | :--- | :--- | :--- | :--- |
-| **1005** | Suspicious Email Attachment | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
-| **1020** | Suspicious Email Attachment | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
+| **1005** | Suspicious Attachment found in email | Low | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
+| **1020** | Powershell Script in Downloads Folder | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1022** | Suspicious Email Attachment | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1023** | Suspicious Email Attachment | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
 | **1024** | Suspicious Email Attachment | High | Yes | [View Report](case-reports/TP-01_suspicious_email_attachment.md) |
