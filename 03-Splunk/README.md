@@ -1,4 +1,7 @@
-Scenario 1 (01 - Initial Access Alert) [View Report](<Scenario 1 - Reports/01-Initial Access Alert/01-REPORT.md>)
+# Introduction:
+This repository documents incident triage, log analysis, and investigation workflows specifically practicing using Splunk and analysing logs bases off alerts given.
+
+## Scenario 1 (01 - Initial Access Alert) [View Report](<Scenario 1 - Reports/01-Initial Access Alert/01-REPORT.md>)
 Scenario 1   [View Report](Case-Reports/ALT-1005-TP.md) |
 Scenario 1   [View Report](Case-Reports/ALT-1005-TP.md) |
 Scenario 1   [View Report](Case-Reports/ALT-1005-TP.md) |
