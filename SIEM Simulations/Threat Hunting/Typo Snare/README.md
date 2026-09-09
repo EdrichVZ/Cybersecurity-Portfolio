@@ -823,6 +823,8 @@ Expanded Access
 
 # 18. Targeting damian.hall
 
+<img width="2560" height="1392" alt="18" src="https://github.com/user-attachments/assets/9889f338-a2e2-415b-ace6-b2248a66d6e4" />
+
 The attacker then turned attention toward:
 
 ```text
@@ -856,6 +858,8 @@ shows that the attacker was systematically expanding their access within the env
 ---
 
 # 19. Final Payload — Ransomware
+
+<img width="2560" height="1392" alt="19" src="https://github.com/user-attachments/assets/1f1f4c72-b22f-4b1b-b1e7-98505bec356c" />
 
 The final phase of the investigation involved:
 
