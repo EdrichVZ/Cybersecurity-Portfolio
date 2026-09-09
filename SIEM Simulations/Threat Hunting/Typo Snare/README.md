@@ -443,6 +443,8 @@ provided strong evidence that the service was part of the attack infrastructure.
 
 # 7. Credential Access — LSASS
 
+<img width="2560" height="1392" alt="7-lsass" src="https://github.com/user-attachments/assets/b692c608-96bd-44a6-bd5d-e792f69fcbcf" />
+
 The attacker subsequently shifted toward credential access.
 
 PowerShell activity associated with:
