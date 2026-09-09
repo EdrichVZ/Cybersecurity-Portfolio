@@ -34,7 +34,7 @@ Notice that there were **508 failed password events** and **40 invalid users eve
 <img width="2560" height="1392" alt="A1-4" src="https://github.com/user-attachments/assets/78425a61-196c-4049-9c1d-1fc0153dd0fa" />
 
 
-We can now confirm that a brute force attack has taken place against the user `john.smith` with **504 login attempts**, which is highly irregular. We now need to confirm if the attack was successful or not by looking if there were any successful logins for user `john.smith`.
+We can now confirm that a brute force attack has taken place against the user `john.smith` with **503 login attempts**, which is highly irregular. We now need to confirm if the attack was successful or not by looking if there were any successful logins for user `john.smith`.
 
 
 <img width="2560" height="1392" alt="A1-5" src="https://github.com/user-attachments/assets/4df82176-f73f-4969-b356-71af82594e39" />
