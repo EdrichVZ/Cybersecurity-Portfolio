@@ -723,6 +723,8 @@ the overall context becomes significantly more suspicious.
 
 # 15. Sticky Keys Abuse
 
+<img width="2560" height="1392" alt="15" src="https://github.com/user-attachments/assets/2cb22a6e-b88b-4f53-a547-50352c58088f" />
+
 The attacker subsequently manipulated the Windows Sticky Keys accessibility mechanism involving:
 
 ```text
@@ -742,6 +744,8 @@ This can potentially provide an attacker with a privileged command shell before 
 ---
 
 # 16. Browser Credential Theft
+
+<img width="2560" height="1392" alt="16" src="https://github.com/user-attachments/assets/baccd92a-1a03-4c67-a484-07e2573de338" />
 
 The attacker then introduced:
 
@@ -770,6 +774,8 @@ The attacker was targeting multiple sources of authentication material rather th
 ---
 
 # 17. Active Directory Group Manipulation
+
+<img width="2560" height="1392" alt="17" src="https://github.com/user-attachments/assets/905de1d1-77fc-47e8-8b9f-e39cbd70c751" />
 
 The attacker subsequently investigated:
 
