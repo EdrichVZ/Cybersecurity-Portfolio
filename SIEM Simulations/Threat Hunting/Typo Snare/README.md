@@ -1,13 +1,8 @@
 # Threat Hunting Investigation — Typo Snare
 
-![Threat Hunting](https://img.shields.io/badge/Focus-Threat%20Hunting-blue)
-![SIEM](https://img.shields.io/badge/SIEM-Elasticsearch-orange)
-![MITRE ATT\&CK](https://img.shields.io/badge/Framework-MITRE%20ATT%26CK-red)
-![Platform](https://img.shields.io/badge/Platform-TryHackMe-green)
-
 ## Overview
 
-This repository documents a hands-on threat-hunting investigation based on the **Typo Snare** scenario from the TryHackMe Threat Hunting Simulator.
+This repository documents a hands-on threat-hunting investigation based on the **Typo Snare** scenario.
 
 The investigation focuses on reconstructing a ransomware intrusion from endpoint and network telemetry.
 
@@ -54,7 +49,7 @@ The main objectives of this investigation were to:
 
 | Category            | Details                            |
 | ------------------- | ---------------------------------- |
-| Platform            | TryHackMe Threat Hunting Simulator |
+| Platform            |  Threat Hunting Simulator |
 | Scenario            | Typo Snare                         |
 | SIEM / Log Platform | Elasticsearch                      |
 | Primary Telemetry   | Windows endpoint and network logs  |
@@ -1393,14 +1388,14 @@ Active Directory
 WinRM
 RDP
 MITRE ATT&CK
-TryHackMe Threat Hunting Simulator
+ Threat Hunting Simulator
 ```
 
 ---
 
 # Disclaimer
 
-This repository documents analysis performed in a controlled **TryHackMe training environment**.
+This repository documents analysis performed in a controlled ** training environment**.
 
 The IP addresses, domains, hostnames, usernames, filenames and other indicators documented here belong to the simulated investigation environment.
 
@@ -1418,7 +1413,7 @@ It should not be interpreted as an investigation of real-world systems.
 
 # References
 
-* TryHackMe — Threat Hunting Simulator
+*  — Threat Hunting Simulator
 * MITRE ATT&CK Framework
 * Windows Security / Sysmon documentation
 
