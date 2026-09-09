@@ -1,2 +1,2 @@
 Scenario 1 (3 alerts)
-scenario 2
+Scenario 2 Compromised Windows Host 
