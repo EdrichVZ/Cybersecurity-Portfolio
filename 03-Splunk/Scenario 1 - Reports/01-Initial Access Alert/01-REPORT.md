@@ -1,4 +1,4 @@
-<img width="2560" height="1392" alt="A1-2" src="https://github.com/user-attachments/assets/485b9dd1-e6fb-4e77-bf17-34c261ff4ce8" /><img width="1024" height="442" alt="Alert 1" src="https://github.com/user-attachments/assets/41ab8657-faa8-4e84-8b4f-d579eb16e414" />
+<img width="1024" height="442" alt="Alert 1" src="https://github.com/user-attachments/assets/ef081529-b21e-43ed-b5ec-a553ae58dea2" />
 
 # Incident Investigation Report: Successful Brute-Force Attack
 
