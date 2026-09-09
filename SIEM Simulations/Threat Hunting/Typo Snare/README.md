@@ -688,6 +688,8 @@ This was a significant escalation because the attacker now had access to multipl
 
 # 14. RDP Session Activity
 
+<img width="2560" height="1392" alt="14" src="https://github.com/user-attachments/assets/98ddfd3f-3cf2-4eb9-9e12-8a6383039696" />
+
 The investigation also identified processes associated with a Remote Desktop session.
 
 Relevant processes included:
