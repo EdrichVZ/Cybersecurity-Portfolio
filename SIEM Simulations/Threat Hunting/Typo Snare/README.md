@@ -416,13 +416,9 @@ SYSTEM
 Persistent execution
 ```
 
-### Screenshot
-
-`![Malicious service](screenshots/05-service-persistence.png)`
-
----
-
 # 6. DLL Execution With rundll32
+
+<img width="2560" height="1392" alt="6-rundll32" src="https://github.com/user-attachments/assets/c3740d16-6d73-484f-a4e6-b2b84c1738e8" />
 
 The investigation identified:
 
@@ -461,10 +457,6 @@ The combination of:
 * Earlier malicious MSI activity
 
 provided strong evidence that the service was part of the attack infrastructure.
-
-### Screenshot
-
-`![rundll32 DLL execution](screenshots/06-rundll32.png)`
 
 ---
 
