@@ -31,29 +31,33 @@ The objective is not simply to identify answers, but to practice using Wireshark
 
 ## Packet Analysis Workflow
 
+```text
 PCAP File
-│
-▼
+    │
+    ▼
 Traffic Overview
-│
-▼
+    │
+    ▼
 Protocol Analysis
-│
-▼
+    │
+    ▼
 Endpoints & Conversations
-│
-▼
+    │
+    ▼
 Identify Interesting Traffic
-│
-▼
+    │
+    ▼
 Apply Display Filters
-│
-▼
+    │
+    ▼
 Inspect Packets
-│
-▼
+    │
+    ▼
 Interpret Findings
-
+    │
+    ▼
+Document Results
+```
 ---
 
 ## 1. Traffic Statistics
