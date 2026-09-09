@@ -242,6 +242,8 @@ to:
 
 # 2. Malicious MSI Execution
 
+<img width="2560" height="1392" alt="2-Malicious-msi" src="https://github.com/user-attachments/assets/927ae7e4-1523-4e23-9e95-1152f87f852f" />
+
 Following the initial network activity, process telemetry identified execution of:
 
 ```text
