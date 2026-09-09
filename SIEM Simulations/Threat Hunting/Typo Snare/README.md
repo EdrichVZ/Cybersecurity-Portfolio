@@ -180,6 +180,8 @@ Ransomware
 
 # 1. Initial Network Activity
 
+<img width="2560" height="1392" alt="1-Initial Investigation Query" src="https://github.com/user-attachments/assets/ff01e860-776a-4b87-bd90-4050509afc4f" />
+
 ## Indicator
 
 The investigation began with suspicious outbound network traffic involving:
