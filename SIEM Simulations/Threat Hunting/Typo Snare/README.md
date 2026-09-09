@@ -232,12 +232,6 @@ to:
 
 **"The workstation subsequently executed files associated with the same attack chain."**
 
-### Screenshot
-
-> Add screenshot of Elasticsearch results showing the suspicious IP and affected host.
-
-`![Initial network activity](screenshots/01-initial-network-activity.png)`
-
 ---
 
 # 2. Malicious MSI Execution
@@ -277,10 +271,6 @@ The important relationship was the timing between:
 5. PowerShell execution
 
 This correlation increased confidence that the MSI was part of the intrusion rather than a normal software installation.
-
-### Screenshot
-
-`![Malicious MSI execution](screenshots/02-malicious-msi.png)`
 
 ---
 
@@ -327,11 +317,6 @@ powershell.exe
         ↓
 IEX
 ```
-
-### Screenshot
-
-`![PowerShell execution](screenshots/03-powershell.png)`
-
 ---
 
 # 4. Masquerading
@@ -362,10 +347,6 @@ The stronger indicator was its relationship with:
 ```
 
 These artifacts formed a consistent cluster of related activity.
-
-### Screenshot
-
-`![Masquerading executable](screenshots/04-masquerading.png)`
 
 ---
 
@@ -504,10 +485,6 @@ LSASS
 Credential material
 ```
 
-### Screenshot
-
-`![LSASS credential access](screenshots/07-lsass.png)`
-
 ---
 
 # 8. Additional Credential Extraction
@@ -564,10 +541,6 @@ Useful hunting pivots include:
 * Remote-system enumeration
 * Unusual account queries
 
-### Screenshot
-
-`![Local administrator discovery](screenshots/08-discovery.png)`
-
 ---
 
 # 10. Credential Reuse and Pass-the-Hash
@@ -607,10 +580,6 @@ whoami
 ```
 
 command helped establish the security context under which the attacker was operating.
-
-### Screenshot
-
-`![Pass the Hash activity](screenshots/09-pass-the-hash.png)`
 
 ---
 
@@ -662,10 +631,6 @@ Remote Command Execution
 
 This was an important indicator of lateral movement.
 
-### Screenshot
-
-`![WinRM activity](screenshots/10-winrm.png)`
-
 ---
 
 # 13. Lateral Movement to WKSTN-02
@@ -704,10 +669,6 @@ WKSTN-02
 
 This was a significant escalation because the attacker now had access to multiple systems.
 
-### Screenshot
-
-`![Lateral movement](screenshots/11-lateral-movement.png)`
-
 ---
 
 # 14. RDP Session Activity
@@ -741,10 +702,6 @@ However, when the processes occur alongside:
 
 the overall context becomes significantly more suspicious.
 
-### Screenshot
-
-`![RDP activity](screenshots/12-rdp.png)`
-
 ---
 
 # 15. Sticky Keys Abuse
@@ -764,10 +721,6 @@ This provided another avenue for privileged execution on the compromised worksta
 Accessibility-feature abuse is particularly concerning because the targeted executable can be invoked from the Windows logon environment.
 
 This can potentially provide an attacker with a privileged command shell before a normal interactive desktop session is established.
-
-### Screenshot
-
-`![Sticky Keys abuse](screenshots/13-sticky-keys.png)`
 
 ---
 
@@ -796,10 +749,6 @@ This indicated that the attacker was continuing to expand their available creden
 The appearance of browser credential theft after previous credential-dumping activity demonstrates a broader credential-acquisition strategy.
 
 The attacker was targeting multiple sources of authentication material rather than relying on a single technique.
-
-### Screenshot
-
-`![Browser credential theft](screenshots/14-browser-credentials.png)`
 
 ---
 
@@ -846,10 +795,6 @@ Privileged Group Membership
        ↓
 Expanded Access
 ```
-
-### Screenshot
-
-`![Active Directory manipulation](screenshots/15-ad-manipulation.png)`
 
 ---
 
@@ -923,10 +868,6 @@ This marked the transition from:
 to:
 
 **impact**.
-
-### Screenshot
-
-`![Ransomware execution](screenshots/16-ransomware.png)`
 
 ---
 
@@ -1453,35 +1394,6 @@ It should not be interpreted as an investigation of real-world systems.
 * Windows Security / Sysmon documentation
 
 ---
-
-## Repository Structure
-
-```text
-typo-snare-threat-hunt/
-│
-├── README.md
-│
-├── screenshots/
-│   ├── 01-initial-network-activity.png
-│   ├── 02-malicious-msi.png
-│   ├── 03-powershell.png
-│   ├── 04-masquerading.png
-│   ├── 05-service-persistence.png
-│   ├── 06-rundll32.png
-│   ├── 07-lsass.png
-│   ├── 08-discovery.png
-│   ├── 09-pass-the-hash.png
-│   ├── 10-winrm.png
-│   ├── 11-lateral-movement.png
-│   ├── 12-rdp.png
-│   ├── 13-sticky-keys.png
-│   ├── 14-browser-credentials.png
-│   ├── 15-ad-manipulation.png
-│   └── 16-ransomware.png
-│
-└── docs/
-    ├── attack-timeline.md
-    └── mitre-mapping.md
 ```
 
 This repository represents a practical threat-hunting exercise focused on reconstructing a multi-stage Windows intrusion and identifying the techniques used throughout the attack lifecycle.
