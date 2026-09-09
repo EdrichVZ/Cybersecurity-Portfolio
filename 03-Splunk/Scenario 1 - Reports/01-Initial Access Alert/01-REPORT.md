@@ -20,18 +20,22 @@ Let’s investigate how many events there are for both successful and failed log
 
 <img width="2560" height="1392" alt="A1-1" src="https://github.com/user-attachments/assets/c65bc40c-ade8-4975-a3e4-3f85a1fb7855" />
 
+
 We can see that **543 events** were associated with the source IP, which is quite a lot. Let’s check how many events are for invalid users and invalid password attempts respectively.
+
 
 <img width="2560" height="1392" alt="A1-2" src="https://github.com/user-attachments/assets/f3a5fe98-6e96-4534-a3c7-15caa8a308f6" />
 <img width="2560" height="1392" alt="A1-3" src="https://github.com/user-attachments/assets/709f4d72-50b8-4595-ac12-caab9b1969ee" />
 
-![Uploading A1-3.png…]()
+
 Notice that there were **508 failed password events** and **40 invalid users events**, which is highly suspicious. However, to confirm if a brute force attack has taken place, let’s look at the total login attempts for each user next.
+
 
 <img width="2560" height="1392" alt="A1-4" src="https://github.com/user-attachments/assets/78425a61-196c-4049-9c1d-1fc0153dd0fa" />
 
 
 We can now confirm that a brute force attack has taken place against the user `john.smith` with **504 login attempts**, which is highly irregular. We now need to confirm if the attack was successful or not by looking if there were any successful logins for user `john.smith`.
+
 
 <img width="2560" height="1392" alt="A1-5" src="https://github.com/user-attachments/assets/4df82176-f73f-4969-b356-71af82594e39" />
 
