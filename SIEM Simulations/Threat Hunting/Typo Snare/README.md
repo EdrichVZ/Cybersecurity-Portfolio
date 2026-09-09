@@ -491,6 +491,8 @@ Credential material
 
 # 8. Additional Credential Extraction
 
+<img width="2560" height="1392" alt="8-discovery" src="https://github.com/user-attachments/assets/621785b9-61c2-481c-b987-5edc0a879084" />
+
 Another PowerShell script was identified:
 
 ```text
@@ -516,6 +518,8 @@ Credential Reuse
 ---
 
 # 9. Local and Domain Discovery
+
+<img width="2560" height="1392" alt="9-passHash" src="https://github.com/user-attachments/assets/74b79631-1e17-4024-9c56-b5363b193c43" />
 
 The attacker began gathering information about the compromised environment.
 
@@ -546,6 +550,8 @@ Useful hunting pivots include:
 ---
 
 # 10. Credential Reuse and Pass-the-Hash
+
+<img width="2560" height="1392" alt="10-winrm" src="https://github.com/user-attachments/assets/f1d5b582-8abb-4095-9b42-8de0cac70a39" />
 
 The investigation subsequently identified activity associated with credential reuse.
 
@@ -587,6 +593,10 @@ command helped establish the security context under which the attacker was opera
 
 # 11. Domain Account Manipulation
 
+<img width="2560" height="1392" alt="11-movement" src="https://github.com/user-attachments/assets/c8b22322-7abc-4291-9300-20ad277d28b9" />
+
+
+
 The attacker subsequently targeted the domain account:
 
 ```text
@@ -606,6 +616,8 @@ This activity demonstrated that the attacker had progressed beyond workstation-l
 ---
 
 # 12. WinRM / Remote PowerShell Activity
+
+
 
 Following the domain-account activity, the investigation identified:
 
