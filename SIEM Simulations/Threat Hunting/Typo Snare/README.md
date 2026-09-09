@@ -618,7 +618,7 @@ This activity demonstrated that the attacker had progressed beyond workstation-l
 
 # 12. WinRM / Remote PowerShell Activity
 
-
+<img width="2560" height="1392" alt="12" src="https://github.com/user-attachments/assets/f4c89e1c-b622-4529-b087-4ae4de0a49a6" />
 
 Following the domain-account activity, the investigation identified:
 
@@ -649,6 +649,8 @@ This was an important indicator of lateral movement.
 ---
 
 # 13. Lateral Movement to WKSTN-02
+
+<img width="2560" height="1392" alt="13" src="https://github.com/user-attachments/assets/a78555dd-a3a2-4c20-8893-c81cbf833048" />
 
 The investigation subsequently identified activity involving:
 
