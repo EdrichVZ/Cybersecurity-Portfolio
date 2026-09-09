@@ -595,6 +595,7 @@ command helped establish the security context under which the attacker was opera
 
 <img width="2560" height="1392" alt="11-movement" src="https://github.com/user-attachments/assets/c8b22322-7abc-4291-9300-20ad277d28b9" />
 
+<img width="2560" height="1392" alt="11-movement2" src="https://github.com/user-attachments/assets/25f84556-6007-42b1-a7a6-567cdca3b0f3" />
 
 
 The attacker subsequently targeted the domain account:
