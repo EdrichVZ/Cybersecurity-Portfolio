@@ -1,76 +1,215 @@
-Windows Threat Detection 2
-Overview
+# Windows Threat Detection 2
 
-This repository documents my practical work from the Windows Threat Detection 2 room.
+## Overview
 
-The lab focused on identifying attacker activity after initial access, using Windows Event Logs and Sysmon to investigate Discovery, Collection, and data transfer activity.
+This repository documents my practical work from the **TryHackMe Windows Threat Detection 2** room.
 
-Skills Practiced
-Windows Event Log analysis
-Sysmon Event ID 1 analysis
-Process tree investigation
-Windows Discovery techniques
-Suspicious command-line analysis
-Sensitive file discovery
-Data collection and staging
-Clipboard activity detection
-Network/exfiltration investigation
-Ingress Tool Transfer detection
-Key Events
-Event ID	Description	SOC Use
-1	Sysmon Process Creation	Investigate commands and process relationships
-22	Sysmon DNS Query	Identify suspicious domains and network activity
-4688	Process Creation	Investigate process execution
-Investigation Approach
+The lab focused on detecting attacker activity **after Initial Access**, with an emphasis on Windows Discovery, Collection, data staging, and the transfer of tools or information.
 
-The basic investigation process was:
+The goal was to understand how a SOC analyst can use Windows and Sysmon telemetry to identify what an attacker is doing after gaining access to a system.
 
+---
+
+## Skills Practiced
+
+* Windows Event Log analysis
+* Sysmon investigation
+* Process tree analysis
+* Command-line investigation
+* Account discovery
+* File and directory discovery
+* Process discovery
+* Security tool discovery
+* Credential-related file discovery
+* Clipboard activity investigation
+* Data staging detection
+* Network activity investigation
+* Ingress Tool Transfer detection
+* MITRE ATT&CK mapping
+
+---
+
+## Process Investigation
+
+One of the most useful techniques when investigating Windows activity is examining the **process tree**.
+
+For example:
+
+```text
+explorer.exe
+     │
+     └── powershell.exe
+             │
+             └── suspicious.exe
+```
+
+The process itself may not immediately appear malicious.
+
+However, the relationship between:
+
+* Parent process
+* Child process
+* Command line
+* User
+* Execution time
+
+can provide important context.
+
+---
+
+## Discovery Activity
+
+Attackers commonly perform reconnaissance after compromising a Windows host.
+
+Examples include discovering:
+
+* Users and accounts
+* Running processes
+* Files and directories
+* Security software
+* System information
+* Network configuration
+
+From a SOC perspective, unusual combinations of discovery commands can indicate that an attacker is actively exploring the compromised environment.
+
+---
+
+## File & Credential Discovery
+
+Attackers may search the filesystem for information that can help them move further into an environment.
+
+Examples include:
+
+```text
+Documents
+Configuration files
+SSH keys
+Credential files
+Browser-related data
+Network information
+```
+
+The important detection question is not simply:
+
+> "Was a file accessed?"
+
+Instead:
+
+> "Why was this user or process searching for this type of information?"
+
+---
+
+## Clipboard Activity
+
+Clipboard contents can contain sensitive information such as:
+
+* Passwords
+* Tokens
+* API keys
+* Internal information
+* Data copied from applications
+
+Clipboard collection can therefore become relevant when investigating possible credential or information theft.
+
+---
+
+## Data Staging
+
+Before data is exfiltrated, attackers may first collect and stage it locally.
+
+A simplified sequence is:
+
+```text
+Find Data
+   ↓
+Collect Data
+   ↓
+Stage Data
+   ↓
+Compress / Prepare
+   ↓
+Transfer Data
+```
+
+This means suspicious archive creation or unusual file aggregation can be an important investigation lead.
+
+---
+
+## Ingress Tool Transfer
+
+Attackers may download additional tools after gaining access to a system.
+
+The analyst can investigate:
+
+* Which process downloaded the file
+* Where the file was saved
+* Which account performed the action
+* What command was executed
+* Whether the downloaded file was subsequently executed
+
+This can help establish the relationship between **tool transfer and subsequent attacker activity**.
+
+---
+
+## Investigation Methodology
+
+```text
 Suspicious Process
        ↓
-Identify Parent Process
+Identify User
        ↓
 Review Command Line
        ↓
-Identify Attacker Activity
+Investigate Parent Process
        ↓
-Check Files / Network Activity
+Identify Discovery / Collection Activity
+       ↓
+Check File & Network Activity
+       ↓
+Build Timeline
        ↓
 Map to MITRE ATT&CK
        ↓
-Document & Escalate
-Activity Investigated
+Document / Escalate
+```
 
-The lab provided practical exposure to detecting:
+---
 
-System and user discovery
-Security tool discovery
-Sensitive file searches
-Credential and SSH key collection
-Clipboard collection
-Data staging
-Data exfiltration
-Downloading tools using legitimate Windows utilities
-MITRE ATT&CK
+## MITRE ATT&CK
 
 Relevant techniques included:
 
-T1087 — Account Discovery
-T1057 — Process Discovery
-T1083 — File and Directory Discovery
-T1555.003 — Credentials from Web Browsers
-T1114 — Email Collection
-T1115 — Clipboard Data
-T1074 — Data Staged
-T1041 — Exfiltration Over C2 Channel
-T1105 — Ingress Tool Transfer
-Key Takeaway
+* **T1087** — Account Discovery
+* **T1057** — Process Discovery
+* **T1083** — File and Directory Discovery
+* **T1115** — Clipboard Data
+* **T1074** — Data Staged
+* **T1105** — Ingress Tool Transfer
+* **T1041** — Exfiltration Over C2 Channel
 
-This lab helped develop the fundamentals of investigating post-compromise Windows activity.
+---
 
-The main focus was learning how a SOC analyst can use process creation, command-line information, file activity, and DNS/network telemetry to reconstruct what an attacker was doing on a compromised host.
+## Key Takeaways
 
-Lab
+This lab helped develop an understanding of how attackers behave **after gaining access to a Windows system**.
 
-Room: Windows Threat Detection 2
+Important SOC concepts practiced included:
+
+* Following process relationships
+* Analysing command-line activity
+* Identifying unusual discovery behaviour
+* Investigating sensitive file searches
+* Recognising data staging
+* Investigating downloaded tools
+* Connecting multiple events into an attack timeline
+
+The main lesson was that **post-compromise activity often involves many seemingly normal Windows commands**. Context and correlation are therefore important when determining whether activity is malicious.
+
+---
+
+## Lab
+
+**Platform:** TryHackMe
+**Room:** Windows Threat Detection 2
 
 This repository contains my own learning notes and investigation methodology rather than a reproduction of the room's answers.
