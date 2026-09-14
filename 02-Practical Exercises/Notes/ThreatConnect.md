@@ -1,179 +1,183 @@
-# Indicators of Compromise (IOC) — Types & Categories
+# IOC Threat & Confidence Ratings
 
-Indicators of Compromise (IOCs) are artifacts or pieces of information that can help identify potentially malicious or compromised activity.
+Threat and Confidence Ratings provide additional context when evaluating an **Indicator of Compromise (IOC)**.
 
-## 1. Network IOCs
+They answer two different questions:
 
-Indicators associated with network communications and infrastructure.
+* **Threat Rating:** How serious or dangerous is this indicator?
+* **Confidence Rating:** How certain are we that our assessment of the indicator is accurate?
 
-| Type                | Example                                              |
-| ------------------- | ---------------------------------------------------- |
-| **IP Address**      | `185.12.34.56`                                       |
-| **Domain**          | `malicious-example.com`                              |
-| **URL**             | `http://malicious-example.com/payload.exe`           |
-| **Port**            | TCP `4444`                                           |
-| **Protocol**        | Suspicious use of FTP, SSH, or SMB                   |
-| **DNS Record**      | DNS request to a known malicious domain              |
-| **Network Traffic** | Unexpected outbound connection to an external server |
-
-**Example:**
-A workstation repeatedly connects to a known malicious IP address over TCP/443.
+These ratings should be considered separately. A highly dangerous indicator may have low confidence, while a less sophisticated indicator may have very high confidence.
 
 ---
 
-## 2. File-Based IOCs
+# 1. Threat Rating
 
-Indicators associated with files and malicious software.
+Threat Rating represents the **level of threat associated with an indicator**.
 
-| Type                  | Example                                      |
-| --------------------- | -------------------------------------------- |
-| **File Hash**         | SHA-256: `a1b2c3...`                         |
-| **File Name**         | `invoice.exe`                                |
-| **File Path**         | `C:\Users\Public\update.exe`                 |
-| **File Extension**    | Unexpected `.exe`, `.dll`, `.ps1`, or `.bat` |
-| **File Size**         | Unusually large or small executable          |
-| **Digital Signature** | Missing or invalid signature                 |
+ThreatConnect uses a **0–5 scale**, with higher ratings representing more capable, determined, and advanced threats.
 
-### Common Hash Types
+| Rating | Level             | Description                                                                                                  | Example                                                                                  |
+| -----: | ----------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+|  **0** | ⚪ **Unknown**     | Not enough information to determine the threat level.                                                        | An unfamiliar IP has been observed, but there is insufficient information to assess it.  |
+|  **1** | 🟡 **Suspicious** | Suspicious activity has been observed, but malicious activity has not been confirmed.                        | Users are repeatedly connecting to an unknown domain with no obvious legitimate purpose. |
+|  **2** | 🟠 **Low**        | Represents a relatively unsophisticated or opportunistic threat.                                             | An IP performing broad internet scanning or opportunistic probing.                       |
+|  **3** | 🔴 **Moderate**   | Represents a capable adversary conducting directed activity such as delivery, exploitation, or installation. | A malicious document specifically targeting employees in a particular department.        |
+|  **4** | 🔴 **High**       | Represents an advanced, targeted, and persistent adversary.                                                  | A known C2 address associated with an ongoing targeted intrusion.                        |
+|  **5** | 🚨 **Critical**   | Represents a highly capable and well-resourced adversary.                                                    | An indicator associated with a highly sophisticated intrusion and active compromise.     |
 
-* **MD5**
-* **SHA-1**
-* **SHA-256**
+### Factors Used to Determine Threat Rating
 
-**Example:**
-An endpoint detects a file whose SHA-256 hash matches a known malware sample.
+When assigning a Threat Rating, consider:
 
----
+* **Capability** — How skilled and well-resourced is the adversary?
+* **Determination** — How focused and persistent is the adversary?
+* **Progression** — How far has the activity progressed in the attack lifecycle?
 
-## 3. Host-Based IOCs
+For example:
 
-Indicators found directly on an endpoint or server.
+```text
+Scanning
+   ↓
+Exploitation
+   ↓
+Installation
+   ↓
+Command & Control
+   ↓
+Actions on Objective
+```
 
-| Type               | Example                                              |
-| ------------------ | ---------------------------------------------------- |
-| **Process**        | `powershell.exe`                                     |
-| **Command Line**   | `powershell -enc ...`                                |
-| **Service**        | Unexpected Windows service                           |
-| **Scheduled Task** | `UpdateTask` running a suspicious executable         |
-| **Registry Key**   | `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` |
-| **File/Directory** | Suspicious file in `%TEMP%`                          |
-| **Driver**         | Unknown or unsigned driver                           |
-
-**Example:**
-A new scheduled task launches an executable from a user's temporary directory.
+An indicator associated with post-compromise **Command and Control (C2)** activity may represent a greater threat than an indicator associated with basic reconnaissance.
 
 ---
 
-## 4. Account & Identity IOCs
+# 2. Confidence Rating
 
-Indicators involving user accounts and authentication activity.
+Confidence Rating represents **how confident an analyst is that the Threat Rating assessment is accurate**.
 
-| Type                    | Example                                     |
-| ----------------------- | ------------------------------------------- |
-| **Username**            | `john.smith`                                |
-| **Email Address**       | `attacker@example.com`                      |
-| **Failed Logins**       | Hundreds of failed authentication attempts  |
-| **Successful Login**    | Login from an unusual location              |
-| **Privilege Change**    | User added to Administrators group          |
-| **New Account**         | Unexpected account creation                 |
-| **Credential Activity** | Suspicious password reset or authentication |
+ThreatConnect uses a **0–100 scale**.
 
-**Example:**
-An account normally used during business hours successfully logs in at 03:00 from an unusual location.
-
----
-
-## 5. Email IOCs
-
-Indicators commonly associated with phishing and malicious email activity.
-
-| Type                 | Example                                  |
-| -------------------- | ---------------------------------------- |
-| **Sender Address**   | `support@paypa1-example.com`             |
-| **Recipient**        | Targeted employee account                |
-| **Subject**          | `Urgent: Account Verification Required`  |
-| **Attachment**       | `Invoice_2026.exe`                       |
-| **Attachment Hash**  | SHA-256 of malicious attachment          |
-| **URL**              | Link to a phishing website               |
-| **Reply-To Address** | Different from the sender domain         |
-| **Email Domain**     | Lookalike domain such as `micros0ft.com` |
-
-**Example:**
-An email contains a link to a lookalike Microsoft login page.
+| Confidence | Level             | Meaning                                                                                       |
+| ---------: | ----------------- | --------------------------------------------------------------------------------------------- |
+|      **0** | ⚪ **Unassessed**  | No confidence assessment has been assigned.                                                   |
+|      **1** | ❌ **Discredited** | The assessment has been confirmed to be inaccurate.                                           |
+|   **2–29** | 🔴 **Improbable** | The assessment is possible but unlikely and is contradicted by other information.             |
+|  **30–49** | 🟠 **Doubtful**   | The assessment is possible but not the most logical conclusion and lacks supporting evidence. |
+|  **50–69** | 🟡 **Possible**   | The assessment is reasonably logical but only partially supported by available information.   |
+|  **70–89** | 🟢 **Probable**   | The assessment is logical, plausible, and consistent with other information.                  |
+| **90–100** | 🟢 **Confirmed**  | The assessment has been confirmed through independent sources or direct analysis.             |
 
 ---
 
-## 6. Web IOCs
+# 3. Threat vs Confidence
 
-Indicators found in web server, application, or proxy activity.
+These ratings should **not be confused with each other**.
 
-| Type                | Example                                     |
-| ------------------- | ------------------------------------------- |
-| **URL**             | `/uploads/shell.php`                        |
-| **IP Address**      | `171.251.232.40`                            |
-| **User-Agent**      | `Hydra`                                     |
-| **HTTP Method**     | Suspicious `POST` request                   |
-| **URI**             | `/wp-login.php`                             |
-| **Web Shell**       | `cmd.php`                                   |
-| **HTTP Status**     | Unusual sequence of `404` / `500` responses |
-| **Request Pattern** | SQL injection or command injection attempts |
+### High Threat + Low Confidence
 
-**Example:**
-A web server receives repeated POST requests attempting to upload or execute a PHP web shell.
+```text
+Threat:     5 / Critical
+Confidence: 20 / Improbable
+```
+
+The indicator could represent a very serious threat, but there is currently little evidence supporting that assessment.
+
+**Action:** Investigate and gather additional intelligence.
 
 ---
 
-## 7. Malware IOCs
+### Low Threat + High Confidence
 
-Indicators specifically associated with malware.
+```text
+Threat:     2 / Low
+Confidence: 95 / Confirmed
+```
 
-| Type                      | Example                              |
-| ------------------------- | ------------------------------------ |
-| **Malware Hash**          | Known malicious SHA-256              |
-| **Malware File**          | `payload.exe`                        |
-| **C2 Domain**             | `command-control.example`            |
-| **C2 IP**                 | `203.0.113.50`                       |
-| **Mutex**                 | Malware-specific mutex name          |
-| **Malware Process**       | Suspicious process spawned by Office |
-| **Persistence Mechanism** | Registry Run key or scheduled task   |
+There is strong evidence that the indicator is associated with a threat, but the threat itself is relatively unsophisticated.
 
-**Example:**
-A workstation executes a known malware hash and subsequently connects to a known C2 domain.
+**Action:** Apply an appropriate response based on the actual risk.
 
 ---
 
-## 8. Behavioral IOCs
+### High Threat + High Confidence
 
-Indicators based on suspicious activity rather than a specific artifact.
+```text
+Threat:     5 / Critical
+Confidence: 95 / Confirmed
+```
 
-| Type                     | Example                                        |
-| ------------------------ | ---------------------------------------------- |
-| **Brute Force**          | Repeated failed login attempts                 |
-| **Privilege Escalation** | Normal user suddenly gains admin privileges    |
-| **Lateral Movement**     | SMB connections to multiple workstations       |
-| **Data Exfiltration**    | Large outbound data transfer                   |
-| **Persistence**          | Creation of a scheduled task                   |
-| **Discovery**            | `whoami`, `ipconfig`, or network enumeration   |
-| **Execution**            | Suspicious PowerShell or command-line activity |
+The indicator represents a serious threat and there is strong evidence supporting the assessment.
 
-Behavioral indicators are particularly useful because attackers can change specific IOCs such as IP addresses and file hashes, while their **attack techniques and behaviors may remain similar**.
+**Action:** Prioritize investigation, containment, and response.
 
 ---
 
-# Quick IOC Reference
+# 4. Example IOC Assessment
 
-| Category          | Common IOCs                                              |
-| ----------------- | -------------------------------------------------------- |
-| 🌐 **Network**    | IPs, domains, URLs, ports, DNS                           |
-| 📁 **File**       | Hashes, filenames, paths, extensions                     |
-| 💻 **Host**       | Processes, services, registry, scheduled tasks           |
-| 👤 **Identity**   | Users, logins, privileges, account changes               |
-| ✉️ **Email**      | Senders, attachments, URLs, domains                      |
-| 🌍 **Web**        | URLs, HTTP requests, User-Agents, web shells             |
-| 🦠 **Malware**    | Hashes, C2 infrastructure, mutexes, payloads             |
-| ⚠️ **Behavioral** | Brute force, lateral movement, persistence, exfiltration |
+### Indicator
 
-## Key Point
+```text
+IP Address: 203.0.113.50
+```
 
-> **IOCs can be technical artifacts or observable behaviors that help analysts identify potentially malicious activity.**
+Investigation shows that the IP is associated with a known C2 infrastructure used during a targeted intrusion.
 
+### Assessment
+
+| Attribute             | Rating                                                                   |
+| --------------------- | ------------------------------------------------------------------------ |
+| **Indicator**         | `203.0.113.50`                                                           |
+| **Type**              | IP Address                                                               |
+| **Threat Rating**     | **4 — High**                                                             |
+| **Confidence Rating** | **90 — Confirmed**                                                       |
+| **Reason**            | Associated with known C2 activity and confirmed through multiple sources |
+
+This provides much more context than simply labeling the IP as **"malicious."**
+
+---
+
+# 5. Key Factors for Confidence
+
+When deciding how confident you are in an assessment, ask:
+
+### Has it been confirmed?
+
+Has the indicator been verified through:
+
+* Direct analysis?
+* Multiple independent sources?
+* Reliable threat intelligence?
+* SIEM or EDR evidence?
+
+### Is the assessment logical?
+
+Does the available evidence actually support the conclusion?
+
+### Does other information agree?
+
+Does the indicator correlate with:
+
+* Other IOCs?
+* Known attack techniques?
+* Security alerts?
+* Malware analysis?
+* Historical threat intelligence?
+
+ThreatConnect recommends considering **confirmation, plausibility, and consistency** when assigning confidence.
+
+---
+
+# Quick Reference
+
+| Concept               | Question                                | Scale     |
+| --------------------- | --------------------------------------- | --------- |
+| **Threat Rating**     | How dangerous is the indicator?         | **0–5**   |
+| **Confidence Rating** | How confident are we in our assessment? | **0–100** |
+
+### Remember
+
+> **Threat = Severity of the threat**
+> **Confidence = Strength of the evidence**
+
+A good SOC analyst should consider **both** before deciding how an IOC should be handled.
