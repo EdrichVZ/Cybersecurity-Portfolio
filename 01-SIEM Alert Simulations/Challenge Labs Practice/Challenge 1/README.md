@@ -47,9 +47,9 @@ This repository documents the incident triage, log analysis, and investigation w
 
 | Metric | Details |
 | :--- | :--- |
-| **Total Cases Analyzed** |  ( 13 (101 to 113 ) |
-| **False Positive Count** |  6 cases (48%) |
-| **True Positive Count** |  8 cases (62%) |
+| **Total Cases Analyzed** |  ( 14 (101 to 114 ) |
+| **False Positive Count** |  6 cases (43%) |
+| **True Positive Count** |  8 cases (57%) |
 
 ---
 
