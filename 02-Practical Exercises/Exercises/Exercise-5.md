@@ -2,79 +2,55 @@
 
 # Task 1
 
-### Phishing Email Indicators
+1. **Email spoofing** (`billing@northgate-logistics-support.com`) and **sender email address mismatch** (`it-support@northgatelogistics.com`).
 
-1. **Email Spoofing / Sender Mismatch**
+   * **SPF fail** — `198.51.100.203` isn't an authorized sender for `northgatelogistics.com`.
 
-   * Displayed sender: `billing@northgate-logistics-support.com`
-   * Sender address: `it-support@northgatelogistics.com`
-   * **SPF failed** — `198.51.100.203` is not an authorized sender for `northgatelogistics.com`.
+2. **Social engineering** — Subject: `Action Required: Password Expiring Today`, creating a sense of urgency.
 
-2. **Social Engineering**
+3. **Impersonation** — The email is made to seem like a legitimate Northgate Logistics email.
 
-   * Subject: `Action Required: Password Expiring Today`
-   * The message creates a sense of urgency to pressure the recipient into taking immediate action.
+4. **Typosquatted link** (`northgate-1ogistics-portal.com`) — a `"1"` has been swapped for an `"l"`.
 
-3. **Impersonation**
+5. **DKIM fail** — The cryptographic signature didn't validate, meaning the message wasn't actually signed by the legitimate domain key (or was altered in transit).
 
-   * The email is designed to appear as though it originates from a legitimate Northgate Logistics source.
-
-4. **Typosquatted Link**
-
-   * `northgate-1ogistics-portal.com`
-   * The domain uses the number **`1`** in place of the letter **`l`** to make the domain appear legitimate.
-
-5. **DKIM Failure**
-
-   * The DKIM cryptographic signature failed validation, indicating that the message was not successfully authenticated using the legitimate domain key or that the message may have been modified.
-
-6. **DMARC Failure**
-
-   * DMARC failed with a policy of **`p=reject`**.
-   * Because both SPF and DKIM failed, the domain's DMARC policy indicates that the message should be rejected.
+6. **DMARC fail (`p=reject`)** — Since both SPF and DKIM failed, DMARC's policy says this message should be rejected outright.
 
 ---
 
 # Task 2
 
-### IOC Classification
+a.) The registry Run key addition = **Host-related IOC**
 
-**a.) Registry Run Key Addition**
+b.) The beaconing to `45.33.12.9` = **Network-related IOC**
 
-`HKCU\...\Run\SyncHelper`
-
-→ **Host-related IOC**
-
-The registry modification creates a persistence mechanism that can cause a malicious program to execute when the user logs in.
-
-**b.) C2 Beaconing**
-
-`45.33.12.9:8443`
-
-→ **Network-related IOC**
-
-Repeated communication with an external IP address over TCP/8443 may indicate command-and-control (C2) communication.
-
-**c.) Unauthorized PAM Elevation**
-
-Auto-approved PAM elevation with no second approver.
-
-→ **Identity / Account-related and Behavioral Indicator**
-
-The issue involves unauthorized elevation of an account's privileges and a failure in the privileged-access approval process.
+c.) The auto-approved PAM elevation with no second approver = **Identity / Account-related IOC but in this case its Host-related**
 
 ---
 
 # Task 3
 
-### Authentication and Authorization Control Failure
+**Authentication and Authorization controls have failed.**
 
-Both **authentication and authorization controls** were compromised or insufficient in this scenario.
+If Authentication was implemented correctly, the attacker should not have been able to log in with just the credentials of user `m.chen`. For example, if MFA was implemented correctly, the attacker would have failed with just the credentials.
 
-**Authentication failure:**
+If Authorization was implemented correctly, the attacker wouldn't have gotten elevated access.
 
-The attacker was able to authenticate using the credentials of user `m.chen`. If stronger authentication controls such as **MFA** had been correctly implemented and enforced, possession of the user's credentials alone should not have been sufficient to authenticate successfully.
+This failed because of an auto-approval for a PAM request and no second approver was required.
 
-**Authorization failure:**
+---
 
-After gaining access to the account, the attacker was able to obtain
+# Task 4
+
+## Containment
+
+* Revoke/reset credentials and elevated **Finance-Payroll-Admin** access immediately for user `m.chen` and isolate the workstation **FIN-WKS-08** from the network.
+* Block the C2 IP (`45.33.12.9:8443`) and phishing domain/URL (`northgate-1ogistics-portal.com/login`) at the firewall/email gateway.
+
+## Eradication
+
+* Remove the malicious `excel.exe`.
+* Delete `sync.exe`.
+* Remove the `HKCU\...\Run\SyncHelper` registry entry.
+* Scan **FIN-WKS-08** for any additional dropped files or persistence mechanisms.
+
