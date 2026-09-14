@@ -1,6 +1,4 @@
-# CySA+ (CS0-003) PBQ Survival Guide
-
-A working reference for the four PBQ skill areas: log reading, MITRE ATT&CK mapping, vulnerability prioritization, and incident response sequencing.
+# Log reading, MITRE ATT&CK mapping, vulnerability prioritization, and incident response sequencing Guide
 
 ---
 
