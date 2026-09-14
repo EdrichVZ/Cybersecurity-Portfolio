@@ -268,6 +268,25 @@ IAM concepts can appear in security alerts and investigations.
 
 ## Key Point
 
+Unauthorized privilege change — An account gaining privileges it should not have. This can be an identity/account-related or behavioral indicator and may be observed through host or directory logs.
+
+For example:
+
+User added to Administrators group → Identity/account-related
+Normal user suddenly receives Domain Admin privileges → Identity/account-related / behavioral
+Attacker exploits a vulnerability to obtain SYSTEM privileges → Host-related / behavioral
+New privileged account created unexpectedly → Identity/account-related
+
+So don't write:
+
+❌ "Unauthorized privileges are explicitly listed as a host-related indicator."
+
+Write:
+
+✅ "Unauthorized privilege changes are indicators of suspicious identity or account activity and can also indicate privilege escalation."
+
+This is more accurate and safer for a CySA+ exam note, because CompTIA's exam objectives don't establish a rigid rule that every privilege change is specifically a "host-related IOC."
+
 For **CySA+ CS0-003**, make sure you can recognize these IAM technologies in a scenario and understand their **security purpose, benefits, risks, and appropriate use**.
 
 The six IAM items explicitly listed by CompTIA are:
