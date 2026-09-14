@@ -40,3 +40,99 @@ Although the CVSS score is **Medium**, the vulnerability should be treated as a 
 This demonstrates an important SOC and vulnerability-management principle:
 
 **CVSS indicates severity — risk context determines priority.**
+
+# CVSS v3.1 — Common Base Metrics & Values
+
+The **Common Vulnerability Scoring System (CVSS) v3.1** Base Score is calculated using metrics that describe how a vulnerability can be exploited and the potential impact of exploitation.
+
+## Attack Metrics
+
+### Attack Vector (AV)
+
+Describes **how the attacker reaches the vulnerable component**.
+
+* **Network (N)** — The vulnerability can be exploited remotely over a network, potentially across the internet.
+* **Adjacent (A)** — The attacker must have access to the same shared or adjacent network.
+* **Local (L)** — The attacker must have local access to the affected system.
+* **Physical (P)** — The attacker must physically interact with the vulnerable device.
+
+### Attack Complexity (AC)
+
+Describes **how difficult the exploitation is once the attacker has access to the target**.
+
+* **Low (L)** — No specialized conditions are required for exploitation.
+* **High (H)** — Exploitation depends on specific conditions that are difficult for the attacker to control or reproduce.
+
+### Privileges Required (PR)
+
+Describes **the level of privileges an attacker must have before exploiting the vulnerability**.
+
+* **None (N)** — No privileges or authentication are required.
+* **Low (L)** — Basic or limited user privileges are required.
+* **High (H)** — Significant privileges, such as administrator-level access, are required.
+
+### User Interaction (UI)
+
+Describes **whether a user must take some action for exploitation to succeed**.
+
+* **None (N)** — The vulnerability can be exploited without user interaction.
+* **Required (R)** — A user must perform an action, such as clicking a link or opening a file.
+
+### Scope (S)
+
+Describes **whether exploitation can impact resources outside the security authority of the vulnerable component**.
+
+* **Unchanged (U)** — The impact remains within the security authority of the vulnerable component.
+* **Changed (C)** — Exploitation can affect resources outside the security authority of the vulnerable component.
+
+---
+
+## Impact Metrics — CIA
+
+The Impact metrics measure the effect of successful exploitation on the **CIA Triad**:
+
+### Confidentiality (C)
+
+Measures the impact on the **disclosure of information**.
+
+* **None (N)** — No loss of confidentiality.
+* **Low (L)** — Limited disclosure of information.
+* **High (H)** — Significant or complete disclosure of information.
+
+### Integrity (I)
+
+Measures the impact on the **modification or destruction of information**.
+
+* **None (N)** — No loss of integrity.
+* **Low (L)** — Limited ability to modify information.
+* **High (H)** — Significant or complete loss of integrity.
+
+### Availability (A)
+
+Measures the impact on the **availability of systems or resources**.
+
+* **None (N)** — No impact on availability.
+* **Low (L)** — Reduced availability or performance.
+* **High (H)** — Significant or complete loss of availability.
+
+> **Note:** CVSS v3.1 uses **N (None), L (Low), and H (High)** for the Confidentiality, Integrity, and Availability impact metrics. **Partial (P)** and **Complete (C)** are associated with older CVSS versions and should not be used for CVSS v3.1.
+
+## Quick Reference
+
+| Metric                       | Values     |
+| ---------------------------- | ---------- |
+| **Attack Vector (AV)**       | N, A, L, P |
+| **Attack Complexity (AC)**   | L, H       |
+| **Privileges Required (PR)** | N, L, H    |
+| **User Interaction (UI)**    | N, R       |
+| **Scope (S)**                | U, C       |
+| **Confidentiality (C)**      | N, L, H    |
+| **Integrity (I)**            | N, L, H    |
+| **Availability (A)**         | N, L, H    |
+
+### Example CVSS v3.1 Vector
+
+`CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H`
+
+This describes a vulnerability that is **remotely exploitable**, has **low attack complexity**, requires **no privileges**, requires **user interaction**, has **unchanged scope**, and can have a **high impact on confidentiality, integrity, and availability**.
+
