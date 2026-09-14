@@ -51,13 +51,39 @@ This repository documents the incident triage, log analysis, and investigation w
 | **False Positive Count** |  6 cases (43%) |
 | **True Positive Count** |  8 cases (57%) |
 
+The most significant finding was the relationship between Alerts **102–104, 107, 110, and 114**. These alerts formed a clear multi-stage attack chain involving:
+
+* Obfuscated PowerShell execution.
+* Outbound C2 communication to `85.203.21.23`.
+* Creation of the rogue account `Michael.Myres`.
+* External RDP access to `IT-TRYHATME`.
+* Interactive command execution using the compromised account.
+* Deletion of Volume Shadow Copies using `vssadmin.exe`.
+
+Rather than investigating each alert in isolation, correlating the events by **user, host, process ID, IP address, and timeline** provided stronger evidence of an active compromise.
+
+The false positives demonstrated the importance of understanding normal business and administrative activity. Legitimate backup operations, internal RDP administration, browser traffic, and policy violations involving stored credentials or macro-enabled documents were identified through contextual analysis rather than being automatically treated as malicious.
+
 ---
 
+# Conclusion
 
+The most important lesson was the value of **alert correlation**. Alert 102 initially identified suspicious PowerShell activity, but subsequent alerts provided additional evidence that the workstation had been compromised. The same PowerShell process was linked to external C2 communication in Alert 103, which was followed by the creation of the `Michael.Myres` persistence account in Alert 104. Alert 107 then showed external RDP access from the same C2 IP, while Alert 110 demonstrated interactive command execution using the newly created account. Finally, Alert 114 showed destructive activity through the deletion of Volume Shadow Copies.
 
----
+This progression demonstrates how individual alerts can provide only part of the picture. Correlating multiple events allowed the activity to be understood as a **multi-stage attack rather than a collection of unrelated alerts**.
 
-## Remediation Plan
+The exercise also reinforced the importance of avoiding unnecessary escalation. Several alerts initially appeared suspicious but were determined to be legitimate administrative activity or policy compliance issues after reviewing the associated user, host, process, and business context.
 
+Overall, this investigation provided practical experience with:
 
-
+* **Alert triage and classification**
+* **True Positive vs False Positive analysis**
+* **Alert correlation**
+* **Process and parent/child process analysis**
+* **PowerShell investigation**
+* **Network and C2 identification**
+* **Persistence detection**
+* **RDP investigation**
+* **Command execution analysis**
+* **Defense evasion detection**
+* **Escalation and remediation recommendations**
