@@ -1,3 +1,48 @@
+## IOC Categories You Should Know
+
+| **Category**                   | **Examples to Know**                                                                                            |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| **Network-related**            | IP addresses, domains, URLs, ports, protocols, DNS queries, network connections, traffic patterns               |
+| **Host-related**               | File names, file paths, hashes, processes, command lines, services, scheduled tasks, registry keys, drivers     |
+| **Application-related**        | Application processes, suspicious application behavior, web requests, HTTP methods, User-Agents, web shells     |
+| **Email-related**              | Sender/recipient, subjects, attachments, attachment hashes, URLs, reply-to addresses, spoofed/lookalike domains |
+| **Identity / Account-related** | Usernames, authentication attempts, unusual logins, privilege changes, new accounts, credential activity        |
+| **Behavioral**                 | Brute force, privilege escalation, persistence, lateral movement, discovery, execution, exfiltration            |
+
+### Important Distinction
+
+For **CompTIA CySA+**, do not think of every item above as a completely separate IOC category. An IOC can belong to more than one category depending on the context in which it is observed.
+
+### Examples
+
+* `185.12.34.56` → **Network-related IOC**
+* `malware.exe` → **Host-related IOC**
+* SHA-256 hash → **Host-related IOC**
+* `powershell -enc ...` → **Host-related IOC**
+* Suspicious HTTP `POST` request → **Application-related IOC**
+* Phishing attachment → **Email-related IOC**
+* Login at 03:00 from an unusual location → **Identity / Behavioral indicator**
+* 500 failed login attempts → **Behavioral indicator**
+
+### IOCs Can Overlap
+
+A single security event can contain multiple types of IOCs.
+
+For example:
+
+> A compromised workstation launches PowerShell, downloads a file from `185.12.34.56`, creates a scheduled task, and communicates with a C2 server.
+
+This activity contains several indicators:
+
+* **Host-related:** PowerShell, downloaded file, scheduled task
+* **Network-related:** IP address and C2 communication
+* **Behavioral:** Execution and persistence
+* **Potentially malware-related:** Malicious payload and C2 infrastructure
+
+### Key Point
+
+**IOCs should be evaluated in context.** A single indicator does not always confirm malicious activity, but multiple related indicators can provide stronger evidence that a system or account may be compromised.
+
 # Indicators of Compromise (IOC) — Types & Categories
 
 Indicators of Compromise (IOCs) are artifacts or pieces of information that can help identify potentially malicious or compromised activity.
