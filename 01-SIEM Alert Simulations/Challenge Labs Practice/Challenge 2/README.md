@@ -21,14 +21,14 @@ This repository documents the incident triage, log analysis, and investigation w
 
 | Alert ID | Alert Name | Severity | Type | Escalation Needed? | Report Link |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **3256** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/102-TP.md) |
-| **3257** | Successful Brute Force | High | Brute Force | Yes | [View Report](Case-Reports/103-TP.md) |
-| **3258** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | Yes | [View Report](Case-Reports/104-TP.md) |
-| **3259** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/107-TP.md) |
-| **3260** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/107-TP.md) |
-| **3263** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/107-TP.md) |
-| **3266** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/107-TP.md) |
-| **3267** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/107-TP.md) |
+| **3256** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/3256-TP.md) |
+| **3257** | Successful Brute Force | High | Brute Force | Yes | [View Report](Case-Reports/3257-TP.md) |
+| **3258** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | Yes | [View Report](Case-Reports/3258-TP.md) |
+| **3259** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/3259-TP.md) |
+| **3260** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/3260-TP.md) |
+| **3263** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/3263-TP.md) |
+| **3266** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/3266-TP.md) |
+| **3267** | Possible Brute Force Attempt | Medium | Brute Force | No | [View Report](Case-Reports/3267-TP.md) |
 
 ---
 
@@ -36,11 +36,11 @@ This repository documents the incident triage, log analysis, and investigation w
 
 | Alert ID | Alert Name | Severity | Type | Escalation Needed? | Report Link |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **3255** | Unusual Port In Outbound Connection | High | Post-Compromise Activity | No | [View Report](Case-Reports/101-FP.md) |
-| **3261** | Unusual Port In Outbound Connection | High | Post-Compromise Activity | No | [View Report](Case-Reports/105-FP.md) |
-| **3262** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | No | [View Report](Case-Reports/106-FP.md) |
-| **3264** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | No | [View Report](Case-Reports/106-FP.md) |
-| **3265** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | No | [View Report](Case-Reports/106-FP.md) |
+| **3255** | Unusual Port In Outbound Connection | High | Post-Compromise Activity | No | [View Report](Case-Reports/3255-FP.md) |
+| **3261** | Unusual Port In Outbound Connection | High | Post-Compromise Activity | No | [View Report](Case-Reports/3261-FP.md) |
+| **3262** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | No | [View Report](Case-Reports/3262-FP.md) |
+| **3264** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | No | [View Report](Case-Reports/3264-FP.md) |
+| **3265** | Excessive Firewall Denies From Internal Source | High | Lateral Movement | No | [View Report](Case-Reports/3265-FP.md) |
 
 # Conclusion:
 
