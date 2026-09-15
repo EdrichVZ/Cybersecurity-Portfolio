@@ -50,40 +50,26 @@ This repository documents the incident triage, log analysis, and investigation w
 | **False Positive Count** |  5 cases (38%) |
 | **True Positive Count** |  8 cases (62%) |
 
-The most significant finding was the relationship between Alerts **102–104, 107, 110, and 114**. These alerts formed a clear multi-stage attack chain involving:
-
-* Obfuscated PowerShell execution.
-* Outbound C2 communication to `85.203.21.23`.
-* Creation of the rogue account `Michael.Myres`.
-* External RDP access to `IT-TRYHATME`.
-* Interactive command execution using the compromised account.
-* Deletion of Volume Shadow Copies using `vssadmin.exe`.
-
-Rather than investigating each alert in isolation, correlating the events by **user, host, process ID, IP address, and timeline** provided stronger evidence of an active compromise.
-
-The false positives demonstrated the importance of understanding normal business and administrative activity. Legitimate backup operations, internal RDP administration, browser traffic, and policy violations involving stored credentials or macro-enabled documents were identified through contextual analysis rather than being automatically treated as malicious.
-
----
-
 # Conclusion
 
-The most important lesson was the value of **alert correlation**. Alert 102 initially identified suspicious PowerShell activity, but subsequent alerts provided additional evidence that the workstation had been compromised. The same PowerShell process was linked to external C2 communication in Alert 103, which was followed by the creation of the `Michael.Myres` persistence account in Alert 104. Alert 107 then showed external RDP access from the same C2 IP, while Alert 110 demonstrated interactive command execution using the newly created account. Finally, Alert 114 showed destructive activity through the deletion of Volume Shadow Copies.
+The most important lesson from this investigation was the value of **alert correlation and understanding the context behind an alert**. Alert 3256 initially identified repeated failed VPN authentication attempts against `j.mitchell` from the external IP `128.199.215.40`. Alert 3257 then showed that the same brute-force activity resulted in a successful VPN authentication, indicating that the account had been compromised. Shortly afterwards, Alert 3258 showed activity from the assigned VPN IP `10.30.3.16` attempting to communicate with internal network resources, providing evidence of **post-compromise network reconnaissance and possible lateral movement**.
 
-This progression demonstrates how individual alerts can provide only part of the picture. Correlating multiple events allowed the activity to be understood as a **multi-stage attack rather than a collection of unrelated alerts**.
+The investigation also demonstrated how multiple alerts can be related even when they occur at different times or involve different accounts. Alerts 3259 and 3260 showed continued SSH brute-force activity against `jumphost_01` from the same external source IP, `180.101.88.223`, although both attempts were unsuccessful. Alerts 3266 and 3267 similarly showed continued VPN brute-force activity from `190.104.25.221` against different accounts. Correlating these events helped identify the activity as **automated authentication attacks rather than isolated login failures**.
 
-The exercise also reinforced the importance of avoiding unnecessary escalation. Several alerts initially appeared suspicious but were determined to be legitimate administrative activity or policy compliance issues after reviewing the associated user, host, process, and business context.
+The exercise also reinforced the importance of avoiding unnecessary escalation. Several alerts initially appeared suspicious but were determined to be legitimate activity after reviewing the surrounding context. Alerts 3255 and 3261 involved authorized TryHackMe VPN testing by `j.carter`, while Alerts 3262, 3264, and 3265 involved legitimate multicast and Windows network discovery traffic that was being blocked by firewall rules. These cases demonstrated why a SOC analyst should investigate the **user, source, destination, protocol, and business context** before classifying an alert as malicious.
 
 Overall, this investigation provided practical experience with:
 
 * **Alert triage and classification**
 * **True Positive vs False Positive analysis**
 * **Alert correlation**
-* **Process and parent/child process analysis**
-* **PowerShell investigation**
-* **Network and C2 identification**
-* **Persistence detection**
-* **RDP investigation**
-* **Command execution analysis**
-* **Defense evasion detection**
+* **Brute-force attack detection**
+* **VPN authentication investigation**
+* **Successful account compromise identification**
+* **Network reconnaissance detection**
+* **Lateral movement indicators**
+* **SSH brute-force investigation**
+* **Firewall and network traffic analysis**
+* **Legitimate multicast traffic identification**
+* **False positive identification and tuning**
 * **Escalation and remediation recommendations**
-
