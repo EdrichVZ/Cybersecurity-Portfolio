@@ -25,7 +25,7 @@ This repository documents the incident triage, log analysis, and investigation w
 | **8817** | Possible Multiple Unauthorized File Enumeration Attempts | Medium | Reconnaissance | No | [View Report](Case-Reports/8817-TP.md) |
 | **8818** | Possible Brute Force Attack on SSH | Low | Brute Force | No | [View Report](Case-Reports/8818-TP.md) |
 | **8821** | Possible Brute Force Attack on Web Application | Medium | Credential Access | No | [View Report](Case-Reports/8821-TP.md) |
-| **8824** | Email Sent to External Recipient with Suspicious Top-Level Domain (TLD) | Low | Phishing | Yes | [View Report](Case-Reports/8824-FP.md) |
+| **8824** | Email Sent to External Recipient with Suspicious Top-Level Domain (TLD) | Low | Phishing | Yes | [View Report](Case-Reports/8824-TP.md) |
 | **8825** | Possible Brute Force Attack on Web Application | Medium | Credential Access | Yes | [View Report](Case-Reports/8825-TP.md) |
 | **8829** | Suspicious Parameter in Web Request | High | Post-Exploitation Activity | Yes | [View Report](Case-Reports/8829-TP.md) |
 | **8830** | Suspicious Parameter in Web Request | High | Post-Exploitation Activity | Yes | [View Report](Case-Reports/8830-TP.md) |
