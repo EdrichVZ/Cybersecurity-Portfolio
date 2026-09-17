@@ -50,8 +50,6 @@ This repository documents the incident triage, log analysis, and investigation w
 | **False Positive Count** |  5 cases (38%) |
 | **True Positive Count** |  8 cases (62%) |
 
-# Conclusion
-
 The most important lesson from this investigation was the value of **alert correlation and understanding the context behind an alert**. Alert 3256 initially identified repeated failed VPN authentication attempts against `j.mitchell` from the external IP `128.199.215.40`. Alert 3257 then showed that the same brute-force activity resulted in a successful VPN authentication, indicating that the account had been compromised. Shortly afterwards, Alert 3258 showed activity from the assigned VPN IP `10.30.3.16` attempting to communicate with internal network resources, providing evidence of **post-compromise network reconnaissance and possible lateral movement**.
 
 The investigation also demonstrated how multiple alerts can be related even when they occur at different times or involve different accounts. Alerts 3259 and 3260 showed continued SSH brute-force activity against `jumphost_01` from the same external source IP, `180.101.88.223`, although both attempts were unsuccessful. Alerts 3266 and 3267 similarly showed continued VPN brute-force activity from `190.104.25.221` against different accounts. Correlating these events helped identify the activity as **automated authentication attacks rather than isolated login failures**.
