@@ -47,34 +47,40 @@ This repository documents the incident triage, log analysis, and investigation w
 | **8828** | Inbound Traffic from Suspicious IP Address | Low | Exfiltration | No | [View Report](Case-Reports/8828-FP.md) |
 
 
-# Conclusion:
-
-| Metric | Details |
-| :--- | :--- |
-| **Total Cases Analyzed** |  (  (3255 to 3267 ) |
-| **False Positive Count** |   cases (38%) |
-| **True Positive Count** |   cases (62%) |
-
 # Conclusion
 
-The most important lesson from this investigation was the value of **alert correlation and understanding the context behind an alert**. Alert 3256 initially identified repeated failed VPN authentication attempts against `j.mitchell` from the external IP `128.199.215.40`. Alert 3257 then showed that the same brute-force activity resulted in a successful VPN authentication, indicating that the account had been compromised. Shortly afterwards, Alert 3258 showed activity from the assigned VPN IP `10.30.3.16` attempting to communicate with internal network resources, providing evidence of **post-compromise network reconnaissance and possible lateral movement**.
+| **Metric**               | **Details**       |
+| :----------------------- | :---------------- |
+| **Total Cases Analyzed** | 17 (8814 to 8830) |
+| **False Positive Count** | 9 cases (53%)     |
+| **True Positive Count**  | 8 cases (47%)     |
 
-The investigation also demonstrated how multiple alerts can be related even when they occur at different times or involve different accounts. Alerts 3259 and 3260 showed continued SSH brute-force activity against `jumphost_01` from the same external source IP, `180.101.88.223`, although both attempts were unsuccessful. Alerts 3266 and 3267 similarly showed continued VPN brute-force activity from `190.104.25.221` against different accounts. Correlating these events helped identify the activity as **automated authentication attacks rather than isolated login failures**.
+The most important lesson from this investigation was the value of **alert correlation and understanding the context behind multiple related alerts**. Several alerts that initially appeared to be separate security events were actually part of a larger attack sequence involving the same attacker IP address, `24.48.63.112`. Alert 8817 identified automated directory and file enumeration against `thetrydaily.thm`, followed by Alert 8821 showing a web application brute-force attempt against `/admin-login.php`. Alert 8825 then showed that the same attacker successfully authenticated to the administrative portal, providing evidence of **successful account compromise**.
 
-The exercise also reinforced the importance of avoiding unnecessary escalation. Several alerts initially appeared suspicious but were determined to be legitimate activity after reviewing the surrounding context. Alerts 3255 and 3261 involved authorized TryHackMe VPN testing by `j.carter`, while Alerts 3262, 3264, and 3265 involved legitimate multicast and Windows network discovery traffic that was being blocked by firewall rules. These cases demonstrated why a SOC analyst should investigate the **user, source, destination, protocol, and business context** before classifying an alert as malicious.
+The investigation then demonstrated how post-compromise activity can quickly escalate. Alert 8829 showed that the attacker used the compromised administrative access to upload `easy-simple-php-webshell.php` to the production web server. Alert 8830 subsequently showed the attacker using the webshell to execute an arbitrary command and modify the WordPress `footer.php` file. This progression provided clear evidence of **post-exploitation activity, unauthorized file modification, persistence, and potential remote code execution**. Correlating Alerts 8825, 8829, and 8830 was therefore important for understanding the full scope of the incident rather than treating each alert as an isolated event.
+
+The investigation also demonstrated the importance of identifying **continued automated attack activity**. Alerts 8815 and 8818 showed repeated SSH brute-force attempts against the `admin` account from `182.132.25.71`. Although these attempts were unsuccessful, the repeated activity indicated an automated authentication attack. Because there was no evidence of a successful login or subsequent compromise in these alerts, they were classified as True Positives without requiring escalation.
+
+Another important part of the investigation was recognizing and properly handling **False Positives**. Alerts 8816, 8819, 8820, 8823, 8826, 8827, and 8828 repeatedly flagged traffic from the internal workstation `10.20.2.16` as suspicious inbound traffic. Reviewing the source address and network context showed that this was legitimate RFC 1918 internal traffic rather than malicious external traffic. Similarly, Alerts 8814 and 8822 involved legitimate outbound legal communications to an external `.tech` domain. These cases demonstrated why a SOC analyst should review the **source, destination, IP address type, user, protocol, application, and business context** before escalating an alert.
+
+The investigation also highlighted the importance of **escalation based on the impact and stage of an attack**. Earlier reconnaissance and unsuccessful brute-force attempts could be contained through firewall or WAF controls and monitoring. However, Alert 8825 required escalation because authentication to the administrative portal was successful, while Alerts 8829 and 8830 required immediate escalation because the attacker progressed to **webshell deployment and arbitrary command execution** on the production server.
 
 Overall, this investigation provided practical experience with:
 
 * **Alert triage and classification**
 * **True Positive vs False Positive analysis**
 * **Alert correlation**
-* **Brute-force attack detection**
-* **VPN authentication investigation**
-* **Successful account compromise identification**
-* **Network reconnaissance detection**
-* **Lateral movement indicators**
-* **SSH brute-force investigation**
-* **Firewall and network traffic analysis**
-* **Legitimate multicast traffic identification**
-* **False positive identification and tuning**
-* **Escalation and remediation recommendations**
+* **Web application reconnaissance**
+* **Directory and file enumeration**
+* **SSH brute-force detection**
+* **Web application brute-force detection**
+* **Successful authentication and account compromise identification**
+* **Webshell detection**
+* **Post-exploitation activity**
+* **Arbitrary command execution**
+* **Unauthorized file modification**
+* **Persistence indicators**
+* **Potential credential and database information exposure**
+* **Internal vs external IP address analysis**
+* **False positive identification and detection tuning**
+
