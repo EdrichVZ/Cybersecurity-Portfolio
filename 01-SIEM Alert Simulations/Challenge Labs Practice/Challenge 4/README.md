@@ -26,9 +26,9 @@ This repository documents the incident triage, log analysis, and investigation w
 | **1007** | Download File To Potentially Suspicious Directory Via Wget | Critical | Execution | Yes | [View Report](Case-Reports/1007-TP.md) |
 | **1008** | Chmod Suspicious Directory | High | Execution | Yes | [View Report](Case-Reports/1008-TP.md) |
 | **1009** | Chmod Suspicious Directory | High | Execution | Yes | [View Report](Case-Reports/1009-TP.md) |
-| **1010** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1010-FP.md) |
+| **1010** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1010-TP.md) |
 | **1012** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1012-TP.md) |
-| **1013** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1013-FP.md) |
+| **1013** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1013-TP.md) |
 
 
 ---
