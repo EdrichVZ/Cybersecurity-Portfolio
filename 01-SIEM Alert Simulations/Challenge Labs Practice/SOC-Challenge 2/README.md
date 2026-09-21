@@ -2,6 +2,9 @@
 
 This repository documents the incident triage, log analysis, and investigation workflows completed as part of a TryHackMe SOC simulation lab. The project demonstrates real-world SOC analyst capabilities in evaluating security events, separating background operational noise from true intrusions, and formulating response plans under telemetry constraints.
 
+## Company Information
+All relevant Company information can be found at: [Company Information](Screenshots/Company-Information/Information.md)
+
 ## Objectives
 
 * **SIEM Alert Processing:** Systematically investigate and process incoming alerts using the **TryDetectThis** monitoring application and the integrated **TryHackMe SIEM** environment.
