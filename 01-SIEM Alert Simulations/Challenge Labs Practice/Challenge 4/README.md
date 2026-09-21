@@ -27,11 +27,9 @@ This repository documents the incident triage, log analysis, and investigation w
 | **1008** | Chmod Suspicious Directory | High | Execution | Yes | [View Report](Case-Reports/1008-TP.md) |
 | **1009** | Chmod Suspicious Directory | High | Execution | Yes | [View Report](Case-Reports/1009-TP.md) |
 | **1010** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1010-FP.md) |
-| **1011** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1011-TP.md) |
 | **1012** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1012-TP.md) |
 | **1013** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1013-FP.md) |
-| **1018** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1018-TP.md) |
-| **1019** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1019-TP.md) |
+
 
 ---
 
@@ -43,11 +41,14 @@ This repository documents the incident triage, log analysis, and investigation w
 | **1001** | Chmod Suspicious Directory | High | Execution | No | [View Report](Case-Reports/1001-FP.md) |
 | **1002** | Hacking Website Blocked | Low | Malware | No | [View Report](Case-Reports/1002-FP.md) |
 | **1003** | Process Discovery | High | Execution | No | [View Report](Case-Reports/1003-FP.md) |
-| **1005** | Potential Suspicious Change To Sensitive/Critical Files | High | Execution | No | [View Report](Case-Reports/1005-FP.md)
+| **1005** | Potential Suspicious Change To Sensitive/Critical Files | High | Execution | No | [View Report](Case-Reports/1005-FP.md) |
+| **1011** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1011-FP.md) |
 | **1014** | Hacking Website Blocked | Low | Malware | No | [View Report](Case-Reports/1014-FP.md) |
 | **1015** | Hacking Website Blocked | Low | Malware | No | [View Report](Case-Reports/1015-FP.md) |
 | **1016** | Shell Invocation via Apt | High | Execution | No | [View Report](Case-Reports/1016-FP.md) |
 | **1017** | Shell Invocation via Apt | High | Execution | No | [View Report](Case-Reports/1017-FP.md) |
+| **1018** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1018-FP.md) |
+| **1019** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1019-FP.md) |
 
 # Conclusion
 
