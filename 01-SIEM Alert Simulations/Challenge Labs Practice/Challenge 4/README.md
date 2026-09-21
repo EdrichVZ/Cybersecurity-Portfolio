@@ -5,7 +5,7 @@ This repository documents the incident triage, log analysis, and investigation w
 ## Objectives
 
 * **SIEM Alert Processing:** Systematically investigate and process incoming alerts using the **TryDetectThis** monitoring application and the integrated **TryHackMe SIEM** environment.
-* **Alert Classification:** Analyze process executions, network connections, and host artifacts to categorize each alert as a **True Positive (TP)** or **False Positive (FP)** across 40 total cases.
+* **Alert Classification:** Analyze process executions, network connections, and host artifacts to categorize each alert as a **True Positive (TP)** or **False Positive (FP)** across 20 total cases.
 * **Threat Escalation:** Identify active intrusion vectors, reconstruct attack lifecycles, and escalate critical security incidents requiring immediate containment.
 * **Standardized Documentation:** Produce detailed, structured incident case reports covering executive summaries, affected entities, threat indicators, triage analysis, and actionable remediation steps.
 
@@ -52,39 +52,50 @@ This repository documents the incident triage, log analysis, and investigation w
 
 # Conclusion
 
+# Conclusion
+
 | **Metric**               | **Details**       |
 | :----------------------- | :---------------- |
-| **Total Cases Analyzed** | 17 (8814 to 8830) |
-| **False Positive Count** | 9 cases (53%)     |
-| **True Positive Count**  | 8 cases (47%)     |
+| **Total Cases Analyzed** | 20 (1000 to 1019) |
+| **False Positive Count** | 12 cases (60%)    |
+| **True Positive Count**  | 8 cases (40%)     |
 
-The most important lesson from this investigation was the value of **alert correlation and understanding the context behind multiple related alerts**. Several alerts that initially appeared to be separate security events were actually part of a larger attack sequence involving the same attacker IP address, `24.48.63.112`. Alert 8817 identified automated directory and file enumeration against `thetrydaily.thm`, followed by Alert 8821 showing a web application brute-force attempt against `/admin-login.php`. Alert 8825 then showed that the same attacker successfully authenticated to the administrative portal, providing evidence of **successful account compromise**.
+The most important lesson from this investigation was the value of **alert correlation and understanding the context surrounding Linux command execution, network activity, and security controls**. Several alerts appeared suspicious when viewed individually, but correlating the user, host, command line, destination, and surrounding events made it possible to distinguish legitimate administrative activity from genuine malicious behavior.
 
-The investigation then demonstrated how post-compromise activity can quickly escalate. Alert 8829 showed that the attacker used the compromised administrative access to upload `easy-simple-php-webshell.php` to the production web server. Alert 8830 subsequently showed the attacker using the webshell to execute an arbitrary command and modify the WordPress `footer.php` file. This progression provided clear evidence of **post-exploitation activity, unauthorized file modification, persistence, and potential remote code execution**. Correlating Alerts 8825, 8829, and 8830 was therefore important for understanding the full scope of the incident rather than treating each alert as an isolated event.
+One of the clearest attack sequences occurred on `Lin-001` involving the user `michael.ascot`. Alert 1007 showed `wget` being used to download `installer.sh` from the external IP `159.65.241.15` into `/tmp`. Alert 1008 then showed `chmod +x installer.sh`, making the downloaded script executable. Alert 1009 subsequently showed `chmod +x /home/michael.ascot/.local/update` being executed as `root`. When correlated, these events demonstrated a progression from **payload download to execution preparation and privileged modification**, making the surrounding context significantly more suspicious than any single command viewed in isolation.
 
-The investigation also demonstrated the importance of identifying **continued automated attack activity**. Alerts 8815 and 8818 showed repeated SSH brute-force attempts against the `admin` account from `182.132.25.71`. Although these attempts were unsuccessful, the repeated activity indicated an automated authentication attack. Because there was no evidence of a successful login or subsequent compromise in these alerts, they were classified as True Positives without requiring escalation.
+The investigation also highlighted the importance of recognizing potential **Command-and-Control (C2) activity through DNS**. Alerts 1010 and 1013 detected suspicious DNS queries from the internal host `192.168.0.10` to domains associated with known C2-style detection patterns. Alert 1010 recorded a query for `a1b2c3.tyhatme.xyz`, while Alert 1013 later recorded another suspicious query for `wer484.tyhatme.xyz`. Repeated suspicious DNS activity from the same internal source demonstrated why analysts should correlate DNS events over time rather than treating each query independently. Repeated or regularly timed DNS queries can indicate **beaconing or communication with attacker-controlled infrastructure**.
 
-Another important part of the investigation was recognizing and properly handling **False Positives**. Alerts 8816, 8819, 8820, 8823, 8826, 8827, and 8828 repeatedly flagged traffic from the internal workstation `10.20.2.16` as suspicious inbound traffic. Reviewing the source address and network context showed that this was legitimate RFC 1918 internal traffic rather than malicious external traffic. Similarly, Alerts 8814 and 8822 involved legitimate outbound legal communications to an external `.tech` domain. These cases demonstrated why a SOC analyst should review the **source, destination, IP address type, user, protocol, application, and business context** before escalating an alert.
+Another important lesson was distinguishing suspicious-looking Linux commands from **legitimate system administration**. Alerts 1016 and 1017 triggered on the use of `apt-get`, a utility that can potentially be abused for shell invocation or command execution. However, the actual commands were `apt-get update` followed by `apt-get upgrade`. This sequence is consistent with normal Linux package maintenance. Correlating the two alerts prevented legitimate administrative activity from being incorrectly escalated simply because the detection rule identified a potentially abusable utility.
 
-The investigation also highlighted the importance of **escalation based on the impact and stage of an attack**. Earlier reconnaissance and unsuccessful brute-force attempts could be contained through firewall or WAF controls and monitoring. However, Alert 8825 required escalation because authentication to the administrative portal was successful, while Alerts 8829 and 8830 required immediate escalation because the attacker progressed to **webshell deployment and arbitrary command execution** on the production server.
+Several alerts also demonstrated the importance of validating the **purpose and reputation of destinations before classifying web activity as malicious**. Security tools generated alerts for access to websites such as `abuseipdb.com`, `shodan.io`, and `exploit-db.com`. Although these websites are associated with cybersecurity, threat intelligence, vulnerability research, and offensive-security information, accessing them does not automatically indicate malicious activity. For a SOC analyst or security administrator, these resources may be completely legitimate. This reinforced the importance of considering **business context and user activity** rather than relying only on the category assigned by a firewall rule.
+
+The phishing alerts provided another example of why the **effectiveness of preventative controls** must be considered during triage. Alerts involving suspicious domains such as `slak.com` and `zo0m.us` resembled legitimate services and could represent typosquatting or phishing attempts. However, the firewall action was `blocked`, meaning access to these destinations was prevented. With no evidence of successful access, credential submission, malware execution, or subsequent compromise, these events did not require escalation. These alerts demonstrated how analysts should distinguish between an **attempted security event and a successful compromise**.
+
+The investigation also reinforced that **alert severity alone should not determine escalation**. Some High-severity alerts were ultimately associated with legitimate activity, while other events became more significant only after they were correlated with preceding or subsequent activity. Reviewing the command line, process, parent process, user account, privilege level, source and destination addresses, firewall action, and related alerts provided a much stronger basis for determining the actual risk.
 
 Overall, this investigation provided practical experience with:
 
 * **Alert triage and classification**
 * **True Positive vs False Positive analysis**
 * **Alert correlation**
-* **Web application reconnaissance**
-* **Directory and file enumeration**
-* **SSH brute-force detection**
-* **Web application brute-force detection**
-* **Successful authentication and account compromise identification**
-* **Webshell detection**
-* **Post-exploitation activity**
-* **Arbitrary command execution**
-* **Unauthorized file modification**
-* **Persistence indicators**
-* **Potential credential and database information exposure**
-* **Internal vs external IP address analysis**
-* **False positive identification and detection tuning**
+* **Linux process and command-line analysis**
+* **Sysmon for Linux event analysis**
+* **`wget` download activity**
+* **`chmod` permission modification**
+* **Suspicious directory and file activity**
+* **Root and privileged command execution**
+* **DNS query analysis**
+* **Potential C2 beaconing detection**
+* **Firewall log analysis**
+* **Phishing and typosquatted domain identification**
+* **Security-tool website validation**
+* **Prevented vs successful attack analysis**
+* **Linux package-management activity**
+* **Legitimate administrative activity identification**
+* **IOC identification**
+* **Escalation decision-making**
+* **False positive identification**
+* **Detection-rule tuning considerations**
 
-
+Overall, the exercise demonstrated that effective SOC analysis is not simply about identifying suspicious alerts. The key skill is determining **what happened before and after an alert, whether the activity was successful, whether it fits legitimate user behavior, and whether multiple events form part of a larger attack chain**. Correlating events across endpoint, DNS, and firewall telemetry provided the context needed to make more accurate classification and escalation decisions.
