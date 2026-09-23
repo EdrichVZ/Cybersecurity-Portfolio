@@ -32,11 +32,11 @@ Investigation of simulated SOC alerts requiring **True Positive / False Positive
 The challenge investigations include multi-stage attack activity involving:
 
 - PowerShell execution and persistence
-- Command-and-Control (C2) communication
+- Command and Control (C2) communication
 - VPN and SSH brute-force attacks
 - Successful account compromise
 - Network reconnaissance and lateral movement
-- Web application attacks and web-shell deployment
+- Web application attacks and web shell deployment
 - Linux command execution and suspicious DNS activity
 
 **Skills:** Alert Triage · Incident Analysis · Alert Correlation · Escalation · Windows · Linux · Network Security
@@ -126,12 +126,14 @@ The investigation follows attacker activity across multiple stages including:
 ## Tools & Technologies
 
 ### SIEM & Security Monitoring
+
 - Splunk
 - Microsoft Sentinel
 - Windows Event Logs
 - Sysmon
 
 ### Network Analysis
+
 - Wireshark
 - PCAP / PCAPNG analysis
 - TCP/IP
@@ -142,6 +144,7 @@ The investigation follows attacker activity across multiple stages including:
 - SSH
 
 ### Endpoint & Operating Systems
+
 - Windows
 - Linux
 - PowerShell
@@ -150,6 +153,7 @@ The investigation follows attacker activity across multiple stages including:
 - Windows Services
 
 ### Security Concepts & Frameworks
+
 - MITRE ATT&CK
 - Cyber Kill Chain
 - Indicators of Compromise (IOCs)
@@ -160,6 +164,7 @@ The investigation follows attacker activity across multiple stages including:
 - Vulnerability Prioritization
 
 ### Identity & Access
+
 - Active Directory
 - Authentication and Authorization
 - Multi-Factor Authentication
