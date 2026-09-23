@@ -61,6 +61,7 @@ This repository documents the incident triage, log analysis, and investigation w
 | **1016** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1016-FP.md) |
 | **1017** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1017-FP.md) |
 | **1018** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1018-FP.md) |
+| **1019** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1019-FP.md) |
 | **1021** | Suspicious Parent Child Relationship | Low | Process | No | [View Report](Case-Reports/ALT-1021-FP.md) |
 | **1035** | Suspicious email from external domain. | Low | Phishing | No | [View Report](Case-Reports/ALT-1035-FP.md) |
 
