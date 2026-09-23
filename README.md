@@ -213,3 +213,73 @@ Cybersecurity-Portfolio/
 ├── 05-Windows-Threat-Detection/
 │
 └── README.md
+```
+
+---
+
+## Planned Projects
+
+Future additions to this portfolio will expand into additional SOC and defensive security areas.
+
+### Linux Threat Investigations
+
+Planned investigations focused on Linux security telemetry and common post-compromise activity, including:
+
+- Authentication attacks
+- Suspicious process execution
+- Bash and shell activity
+- Privilege escalation
+- Persistence mechanisms
+- Suspicious cron jobs and services
+- Network connections
+- Log analysis and incident reconstruction
+
+### Active Directory Threat Detection
+
+Planned investigations covering identity-based attacks in Windows domain environments, including:
+
+- Suspicious authentication activity
+- Account enumeration
+- Credential abuse
+- Kerberos-related activity
+- Lateral movement
+- Privilege escalation
+- Administrative account misuse
+- Active Directory attack detection
+
+### Microsoft Sentinel Investigations
+
+Additional SIEM investigations using Microsoft Sentinel, with emphasis on:
+
+- KQL-based log analysis
+- Alert triage
+- Incident correlation
+- Entity investigation
+- Authentication analysis
+- Threat hunting
+- Incident response workflows
+
+### Expanded Network Threat Hunting
+
+Additional packet-level investigations involving:
+
+- Command and Control traffic
+- Data exfiltration
+- DNS and ICMP tunnelling
+- Lateral movement
+- Suspicious protocol usage
+- Attack reconstruction from PCAP data
+
+These projects will be added as they are completed and documented.
+
+---
+
+## Portfolio Focus
+
+This portfolio is continuously developed as part of my progression toward a **SOC Analyst / Cybersecurity Analyst** role.
+
+The projects are designed to demonstrate practical investigation ability rather than only theoretical knowledge, with emphasis on:
+
+**Triage → Investigation → Correlation → Classification → Escalation → Remediation**
+
+All environments and incidents documented in this repository are **simulated training environments** used for cybersecurity practice and skills development.
