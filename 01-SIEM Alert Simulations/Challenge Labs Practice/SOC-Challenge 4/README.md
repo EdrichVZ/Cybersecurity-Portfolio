@@ -33,7 +33,6 @@ All relevant Company information can be found at: [Company Information](Screensh
 | **1012** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1012-TP.md) |
 | **1013** | Suspicious DNS Query | High | DNS | Yes | [View Report](Case-Reports/1013-TP.md) |
 
-
 ---
 
 **False Positives**
@@ -52,8 +51,6 @@ All relevant Company information can be found at: [Company Information](Screensh
 | **1017** | Shell Invocation via Apt | High | Execution | No | [View Report](Case-Reports/1017-FP.md) |
 | **1018** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1018-FP.md) |
 | **1019** | Phishing Website Blocked | Low | Phishing | No | [View Report](Case-Reports/1019-FP.md) |
-
-# Conclusion
 
 # Conclusion
 
