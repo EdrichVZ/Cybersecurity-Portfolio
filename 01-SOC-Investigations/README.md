@@ -121,7 +121,7 @@ Attack activity included:
 - MITRE ATT&CK mapping
 - Containment and eradication recommendations
 
-The investigation required analysts to distinguish **15 True Positives from 21 False Positives** while correlating events into a larger compromise sequence.
+The investigation required **15 True Positives to be distinguished from 21 False Positives** while correlating related events into a larger compromise sequence.
 
 [View Scenario 2](Phishing-Investigations/Scenario%202/)
 
