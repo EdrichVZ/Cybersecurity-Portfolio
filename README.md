@@ -2,7 +2,7 @@
 
 A hands-on cybersecurity portfolio focused on the practical skills required for a **Junior SOC Analyst / Tier 1 Security Analyst** role.
 
-This repository documents security investigations, alert triage, phishing analysis, threat hunting, SIEM investigations, network traffic analysis, and Windows threat detection performed in simulated environments.
+This repository documents security investigations, alert triage, phishing analysis, threat hunting, SIEM investigations, network traffic analysis, Windows threat detection, and Linux threat detection performed in simulated environments.
 
 The primary focus of this portfolio is not simply completing labs, but demonstrating the ability to **analyze security events, correlate evidence, distinguish true positives from false positives, investigate attack activity, and recommend appropriate containment or escalation actions**.
 
