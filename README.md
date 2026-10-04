@@ -232,19 +232,6 @@ Cybersecurity-Portfolio/
 
 Future additions to this portfolio will expand into additional SOC and defensive security areas.
 
-### Linux Threat Investigations
-
-Planned investigations focused on Linux security telemetry and common post-compromise activity, including:
-
-- Authentication attacks
-- Suspicious process execution
-- Bash and shell activity
-- Privilege escalation
-- Persistence mechanisms
-- Suspicious cron jobs and services
-- Network connections
-- Log analysis and incident reconstruction
-
 ### Active Directory Threat Detection
 
 Planned investigations covering identity-based attacks in Windows domain environments, including:
