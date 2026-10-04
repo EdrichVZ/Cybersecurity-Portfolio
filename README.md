@@ -121,6 +121,7 @@ The investigation follows attacker activity across multiple stages including:
 | **SOC Practical Exercises** | Scenario-based exercises covering incident response, vulnerability prioritization, MITRE ATT&CK, IOC analysis, phishing, and security controls. | [View Exercises](02-Practical-Exercises/) |
 | **Wireshark Practice** | PCAP and network traffic analysis covering protocols, reconnaissance, suspicious traffic, tunnelling, and web activity. | [View Wireshark Labs](04-Wireshark-Practice/) |
 | **Windows Threat Detection** | Windows Security Event Log and Sysmon exercises covering Initial Access, Discovery, Persistence, Command and Control, and post-compromise activity. | [View Windows Labs](05-Windows-Threat-Detection/) |
+| Linux Threat Detection | Linux security investigations covering SSH attacks, discovery, malware activity, reverse shells, privilege escalation, systemd and cron persistence, account persistence, and SSH-key persistence. | [View Linux Labs](./06-Linux-Threat-Detection) |
 
 ---
 
@@ -152,6 +153,11 @@ The investigation follows attacker activity across multiple stages including:
 - Windows Registry
 - Scheduled Tasks
 - Windows Services
+- Linux auditd
+- ausearch
+- Linux Authentication Logs
+- systemd
+- Cron
 
 ### Security Concepts & Frameworks
 
@@ -182,6 +188,8 @@ Throughout the portfolio, investigations focus on practical SOC workflows such a
 - Distinguishing True Positives from False Positives
 - Correlating multiple alerts into larger attack sequences
 - Analyzing Windows processes and parent/child relationships
+- Analyzing Linux audit telemetry and process relationships
+- Investigating Linux privilege escalation and persistence mechanisms
 - Investigating suspicious authentication activity
 - Identifying persistence mechanisms
 - Detecting C2 communication and suspicious network behavior
@@ -212,6 +220,8 @@ Cybersecurity-Portfolio/
 ├── 04-Wireshark-Practice/
 │
 ├── 05-Windows-Threat-Detection/
+│
+├── 06-Linux-Threat-Detection/
 │
 └── README.md
 ```
