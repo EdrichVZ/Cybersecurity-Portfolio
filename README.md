@@ -16,6 +16,7 @@ The primary focus of this portfolio is not simply completing labs, but demonstra
 - **Threat Hunting**
 - **Network Traffic Analysis — Wireshark**
 - **Windows Event Log & Sysmon Analysis**
+- **Linux Threat Detection & auditd Analysis**
 - **MITRE ATT&CK**
 - **IOC Analysis**
 - **Incident Response**
